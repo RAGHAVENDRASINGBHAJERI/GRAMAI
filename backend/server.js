@@ -14,6 +14,7 @@ const authRoutes = require('./routes/auth');
 const chatRoutes = require('./routes/chat');
 const adminRoutes = require('./routes/admin');
 const contentRoutes = require('./routes/content');
+const communityRoutes = require('./routes/community');
 
 const app = express();
 
@@ -60,6 +61,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/chat', chatRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/content', contentRoutes);
+app.use('/api/community', communityRoutes);
 
 // Error handling
 app.use(notFoundHandler);

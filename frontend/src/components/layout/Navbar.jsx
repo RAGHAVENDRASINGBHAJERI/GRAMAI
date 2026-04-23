@@ -16,8 +16,9 @@ import {
   Shield,
   LogOut,
   Globe,
-  Sun,
   Moon,
+  Store,
+  Sun,
 } from 'lucide-react';
 
 const Navbar = () => {
@@ -33,6 +34,7 @@ const Navbar = () => {
     { path: '/schemes', label: t('nav.schemes'), icon: FileText },
     { path: '/healthcare', label: t('nav.healthcare'), icon: Heart },
     { path: '/mandi-prices', label: t('nav.mandi'), icon: TrendingUp },
+    { path: '/community', label: 'Marketplace', icon: Store },
     { path: '/profile', label: t('nav.profile'), icon: User },
   ];
 

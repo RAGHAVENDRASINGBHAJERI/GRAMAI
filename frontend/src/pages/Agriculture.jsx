@@ -4,6 +4,7 @@ import MarkdownRenderer from '../components/shared/MarkdownRenderer';
 import { Loader2, MapPin, AlertCircle } from 'lucide-react';
 import { useAppTranslation } from '../hooks/useTranslation';
 import { useLocationContent } from '../hooks/useLocationContent';
+import WeatherWidget from '../components/agriculture/WeatherWidget';
 
 const Agriculture = () => {
   const { t } = useAppTranslation();
@@ -19,6 +20,8 @@ const Agriculture = () => {
           {locationName ? `Showing intelligence for: ${locationName}` : 'Detecting location...'}
         </p>
       </div>
+
+      <WeatherWidget />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}

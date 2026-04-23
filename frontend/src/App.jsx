@@ -14,6 +14,7 @@ import Agriculture from './pages/Agriculture';
 import Schemes from './pages/Schemes';
 import Healthcare from './pages/Healthcare';
 import MandiPrices from './pages/MandiPrices';
+import Community from './pages/Community';
 import Profile from './pages/Profile';
 import AdminDashboard from './pages/admin/AdminDashboard';
 
@@ -40,6 +41,7 @@ function App() {
             <Route path="/schemes" element={<Schemes />} />
             <Route path="/healthcare" element={<Healthcare />} />
             <Route path="/mandi-prices" element={<MandiPrices />} />
+            <Route path="/community" element={<Community />} />
             <Route path="/profile" element={<Profile />} />
           </Route>
         </Route>

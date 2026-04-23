@@ -221,21 +221,21 @@ const generateLocationContent = async (category, location, language = 'en') => {
     const locString = location || 'India';
     const categoryPrompts = {
       en: {
-        agriculture: `Provide the latest highly-accurate agricultural insights, best practices, crop cycles, and weather-related farming advice for ${locString}.`,
-        schemes: `Detail the most relevant and active Indian government agricultural/rural schemes available for residents of ${locString}.`,
-        health: `Provide essential rural healthcare guidance, local disease prevention mechanisms, and general wellness advice tailored for ${locString}, India. Add a disclaimer to consult local doctors.`,
+        agriculture: `Provide the latest highly-accurate agricultural insights, best practices, crop cycles, and weather-related farming advice for ${locString}. Also add a YouTube search link for demo videos, formatted exactly as: [Watch related video on YouTube](https://www.youtube.com/results?search_query=topic+farming).`,
+        schemes: `Detail the most relevant and active Indian government agricultural/rural schemes available for residents of ${locString}. You MUST include accurate official website URLs for every scheme. ALSO add a YouTube search link formatted exactly as: [Watch Demo Video on YouTube](https://www.youtube.com/results?search_query=how+to+apply+scheme+name).`,
+        health: `Provide essential rural healthcare guidance, local disease prevention mechanisms, and general wellness advice tailored for ${locString}, India. Add a disclaimer to consult local doctors. Add a YouTube search link formatted exactly as: [Watch video on YouTube](https://www.youtube.com/results?search_query=healthy+habits+in+hindi).`,
         mandi: `Provide estimated current Mandi prices, Minimum Support Price (MSP) info, and market trends for major crops grown around ${locString}. Add a disclaimer that prices fluctuate.`,
       },
       hi: {
-        agriculture: `${locString} के लिए नवीनतम कृषि तकनीकों, फसल चक्रों और मौसम से संबंधित कृषि सलाह प्रदान करें।`,
-        schemes: `${locString} के निवासियों के लिए उपलब्ध सबसे प्रासंगिक और सक्रिय भारतीय सरकारी कृषि/ग्रामीण योजनाओं का विवरण दें।`,
-        health: `${locString}, भारत के लिए आवश्यक ग्रामीण स्वास्थ्य देखभाल मार्गदर्शन और रोग निवारण सलाह प्रदान करें। डॉक्टरों से परामर्श करने का डिस्क्लेमर जोड़ें।`,
+        agriculture: `${locString} के लिए नवीनतम कृषि तकनीकों, फसल चक्रों और मौसम से संबंधित कृषि सलाह प्रदान करें। कृपया इस प्रारूप में वीडियो लिंक भी जोड़ें: [Watch related video on YouTube](https://www.youtube.com/results?search_query=topic+farming+in+hindi).`,
+        schemes: `${locString} के निवासियों के लिए उपलब्ध सबसे प्रासंगिक और सक्रिय भारतीय सरकारी कृषि/ग्रामीण योजनाओं का विवरण दें। आधिकारिक वेबसाइट लिंक और इस प्रारूप में एक वीडियो लिंक शामिल करें: [Watch Demo Video on YouTube](https://www.youtube.com/results?search_query=how+to+apply+scheme+name+in+hindi).`,
+        health: `${locString}, भारत के लिए आवश्यक ग्रामीण स्वास्थ्य देखभाल मार्गदर्शन और रोग निवारण सलाह प्रदान करें। डॉक्टरों से परामर्श करने का डिस्क्लेमर जोड़ें। इसके साथ एक वीडियो लिंक जोड़ें: [Watch video on YouTube](https://www.youtube.com/results?search_query=health+tips+in+hindi).`,
         mandi: `${locString} के आसपास उगाई जाने वाली प्रमुख फसलों के लिए अनुमानित मण्डी भाव और न्यूनतम समर्थन मूल्य (MSP) की जानकारी दें।`,
       },
       kn: {
-        agriculture: `${locString} ಗೆ ಇತ್ತೀಚಿನ ಕೃಷಿ ತಂತ್ರಗಳು, ಬೆಳೆ ಚಕ್ರಗಳು ಮತ್ತು ಹವಾಮಾನ ಆಧಾರಿತ ಕೃಷಿ ಸಲಹೆಗಳನ್ನು ಒದಗಿಸಿ.`,
-        schemes: `${locString} ನಿವಾಸಿಗಳಿಗೆ ಲಭ್ಯವಿರುವ ಪ್ರಮುಖ ಭಾರತೀಯ ಸರ್ಕಾರಿ ಕೃಷಿ/ಗ್ರಾಮೀಣ ಯೋಜನೆಗಳನ್ನು ವಿವರಿಸಿ.`,
-        health: `${locString}, ಭಾರತಕ್ಕೆ ಅಗತ್ಯವಾದ ಗ್ರಾಮೀಣ ಆರೋಗ್ಯ ಮಾರ್ಗದರ್ಶನ ಮತ್ತು ರೋಗ ತಡೆಗಟ್ಟುವಿಕೆ ಸಲಹೆಗಳನ್ನು ನೀಡಿ. ವೈದ್ಯರನ್ನು ಸಂಪರ್ಕಿಸಲು ಸೂಚನೆ ಸೇರಿಸಿ.`,
+        agriculture: `${locString} ಗೆ ಇತ್ತೀಚಿನ ಕೃಷಿ ತಂತ್ರಗಳು, ಬೆಳೆ ಚಕ್ರಗಳು ಮತ್ತು ಹವಾಮಾನ ಆಧಾರಿತ ಕೃಷಿ ಸಲಹೆಗಳನ್ನು ಒದಗಿಸಿ. ಹಾಗೂ ಯೂಟ್ಯೂಬ್ ವಿಡಿಯೋ ಲಿಂಕ್ ಈ ರೀತಿ ಸೇರಿಸಿ: [Watch related video on YouTube](https://www.youtube.com/results?search_query=topic+farming+in+kannada).`,
+        schemes: `${locString} ನಿವಾಸಿಗಳಿಗೆ ಲಭ್ಯವಿರುವ ಪ್ರಮುಖ ಭಾರತೀಯ ಸರ್ಕಾರಿ ಕೃಷಿ/ಗ್ರಾಮೀಣ ಯೋಜನೆಗಳನ್ನು ವಿವರಿಸಿ. ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್ URL ಗಳನ್ನು ಮತ್ತು ವಿಡಿಯೋ ಲಿಂಕ್ ಈ ರೀತಿ ತಪ್ಪದೆ ಸೇರಿಸಿ: [Watch Demo Video on YouTube](https://www.youtube.com/results?search_query=how+to+apply+scheme+name+in+kannada).`,
+        health: `${locString}, ಭಾರತಕ್ಕೆ ಅಗತ್ಯವಾದ ಗ್ರಾಮೀಣ ಆರೋಗ್ಯ ಮಾರ್ಗದರ್ಶನ ಮತ್ತು ರೋಗ ತಡೆಗಟ್ಟುವಿಕೆ ಸಲಹೆಗಳನ್ನು ನೀಡಿ. ವೈದ್ಯರನ್ನು ಸಂಪರ್ಕಿಸಲು ಸೂಚನೆ ಸೇರಿಸಿ. ವಿಡಿಯೋ ಲಿಂಕ್ ಸೇರಿಸಿ: [Watch video on YouTube](https://www.youtube.com/results?search_query=health+home+remedies+in+kannada).`,
         mandi: `${locString} ಸುತ್ತಮುತ್ತಲಿನ ಪ್ರಮುಖ ಬೆಳೆಗಳಿಗೆ ಅಂದಾಜು ಮಂಡಿ ಬೆಲೆಗಳು ಮತ್ತು ಕನಿಷ್ಠ ಬೆಂಬಲ ಬೆಲೆ (MSP) ಮಾಹಿತಿ ನೀಡಿ.`,
       }
     };

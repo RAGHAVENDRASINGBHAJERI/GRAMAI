@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { ExternalLink, Youtube } from 'lucide-react';
 
 const MarkdownRenderer = ({ content, colorTheme = 'primary' }) => {
   // Determine color palette based on theme (primary, blue, red, orange)
@@ -32,6 +33,23 @@ const MarkdownRenderer = ({ content, colorTheme = 'primary' }) => {
         h3: ({ node, ...props }) => (
           <h3 className="text-xl font-medium text-text-primary mt-6 mb-3" {...props} />
         ),
+        a: ({ node, href, children, ...props }) => {
+          const isYouTube = href?.includes('youtube.com') || href?.includes('youtu.be');
+          if (isYouTube) {
+            return (
+              <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 my-3 bg-red-600 hover:bg-red-700 text-white rounded-xl text-sm font-medium transition-all shadow-sm shadow-red-200 w-fit">
+                <Youtube className="w-5 h-5 flex-shrink-0" />
+                <span>{children}</span>
+              </a>
+            );
+          }
+          return (
+            <a href={href} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 px-4 py-2 my-2 bg-white border border-gray-200 hover:border-primary hover:bg-primary-50 ${theme.text} rounded-xl text-sm font-medium transition-all w-fit shadow-sm`}>
+              <ExternalLink className="w-4 h-4 flex-shrink-0 text-text-secondary" />
+              <span>{children}</span>
+            </a>
+          );
+        },
         table: ({ node, ...props }) => (
           <div className="overflow-x-auto my-6 rounded-xl border border-gray-100 shadow-sm">
             <table className="w-full text-left border-collapse min-w-[600px]" {...props} />
