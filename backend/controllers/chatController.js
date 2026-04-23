@@ -177,9 +177,24 @@ const deleteQuery = async (req, res, next) => {
   }
 };
 
+/**
+ * Clear all chat history for the authenticated user
+ */
+const clearHistory = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    await Query.deleteMany({ userId });
+
+    return success(res, null, 'Chat history cleared');
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   processQuery,
   getHistory,
   toggleSave,
   deleteQuery,
+  clearHistory,
 };

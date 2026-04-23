@@ -8,4 +8,6 @@ export const chatService = {
   toggleSave: (id) => api.patch(`/chat/${id}/save`),
 
   deleteQuery: (id) => api.delete(`/chat/${id}`),
+
+  clearHistory: () => api.delete('/chat/history'),
 };

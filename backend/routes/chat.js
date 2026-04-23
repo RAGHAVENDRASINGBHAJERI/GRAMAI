@@ -9,6 +9,7 @@ const { validateBody, schemas } = require('../middleware/validate');
 router.post('/', chatLimiter, optionalAuth, validateBody(schemas.chatQuery), chatController.processQuery);
 router.get('/history', authenticate, chatController.getHistory);
 router.patch('/:id/save', authenticate, chatController.toggleSave);
+router.delete('/history', authenticate, chatController.clearHistory);
 router.delete('/:id', authenticate, chatController.deleteQuery);
 
 module.exports = router;

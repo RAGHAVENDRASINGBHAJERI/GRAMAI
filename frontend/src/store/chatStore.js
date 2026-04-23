@@ -22,7 +22,27 @@ export const useChatStore = create(
 
       setCategory: (category) => set({ currentCategory: category }),
 
-      clearMessages: () => set({ messages: [] }),
+      clearMessages: async () => {
+        // Try to clear server-side history if user is authenticated
+        try {
+          const stored = localStorage.getItem('gramaai-auth');
+          if (stored) {
+            const parsed = JSON.parse(stored);
+            if (parsed?.state?.isAuthenticated) {
+              await chatService.clearHistory();
+            }
+          }
+        } catch (error) {
+          console.error('Failed to clear server chat history', error);
+          // Continue to clear local state even if API fails
+        }
+
+        // Remove legacy localStorage key
+        localStorage.removeItem('gramaai-chat-messages');
+
+        // Clear Zustand state (persist middleware will update localStorage)
+        set({ messages: [] });
+      },
 
       fetchHistory: async () => {
         try {
