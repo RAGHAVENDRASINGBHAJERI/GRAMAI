@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "env:dev": "node toggle-env.js development",
+    "env:prod": "node toggle-env.js production"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

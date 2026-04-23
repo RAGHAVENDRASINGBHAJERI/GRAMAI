@@ -62,11 +62,46 @@
     "saved": "Saved"
   },
   "healthcare": {
-    "title": "Healthcare",
+    "title": "Interactive Healthcare Assistant",
     "symptomChecker": "Symptom Checker",
     "emergency": "Emergency Numbers",
     "tips": "Health Tips",
-    "nearby": "Nearby Health Centers"
+    "nearby": "Nearby Health Centers",
+    "mentalPortal": {
+      "title": "🧠 Mental Wellness Portal",
+      "desc": "Explore our new mental health self-assessment and wellness application.",
+      "btn": "View Project"
+    },
+    "qq1": "I have fever and body ache",
+    "qq2": "What should a pregnant woman eat?",
+    "qq3": "Home remedies for a minor burn",
+    "qq4": "How to prevent mosquito bites?",
+    "howAreYou": "How are you feeling today?",
+    "desc": "Describe your symptoms, ask for home remedies, or get first-aid advice. Always consult a doctor for severe issues!",
+    "clear": "Clear",
+    "placeholder": "Describe your health condition...",
+    "subtitle": "Share your symptoms or health queries.",
+    "offlineSubtitle": "Offline Mode. Basic queries only."
+  },
+  "marketplace": {
+    "title": "Farmer Marketplace",
+    "desc": "Buy and sell crops or equipment locally.",
+    "allListings": "All Listings",
+    "itemsForSale": "Items for Sale",
+    "itemsWanted": "Items Wanted",
+    "newListing": "New Listing",
+    "selling": "SELLING",
+    "buying": "BUYING",
+    "noPhoto": "No Photo",
+    "qty": "Qty:",
+    "seller": "Seller:",
+    "buyer": "Buyer:",
+    "contactSeller": "Contact Seller",
+    "contactBuyer": "Contact Buyer",
+    "loading": "Loading market listings...",
+    "noListings": "No listings found",
+    "beFirst": "There are currently no items in the marketplace. Be the first to create a listing!",
+    "loginRequired": "Please login to create a listing."
   },
   "mandi": {
     "title": "Mandi Prices",

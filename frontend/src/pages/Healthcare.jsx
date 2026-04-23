@@ -14,7 +14,8 @@ import {
   Bot,
   User,
   Heart,
-  RefreshCw
+  RefreshCw,
+  ExternalLink
 } from 'lucide-react';
 
 const TypingIndicator = () => (
@@ -107,10 +108,10 @@ const Healthcare = () => {
   const inputRef = useRef(null);
 
   const quickQuestions = [
-    'I have fever and body ache',
-    'What should a pregnant woman eat?',
-    'Home remedies for a minor burn',
-    'How to prevent mosquito bites?'
+    t('healthcare.qq1'),
+    t('healthcare.qq2'),
+    t('healthcare.qq3'),
+    t('healthcare.qq4')
   ];
 
   useEffect(() => {
@@ -195,7 +196,7 @@ const Healthcare = () => {
             {t('healthcare.title') || 'Interactive Healthcare Assistant'}
           </h1>
           <p className="text-sm text-text-secondary mt-1">
-            {isOnline ? 'Share your symptoms or health queries.' : 'Offline Mode. Basic queries only.'}
+            {isOnline ? t('healthcare.subtitle') : t('healthcare.offlineSubtitle')}
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -204,9 +205,29 @@ const Healthcare = () => {
             className="btn-ghost text-sm text-error flex items-center gap-2 hover:bg-red-50"
           >
             <RefreshCw className="w-4 h-4" />
-            Clear
+            {t('healthcare.clear')}
           </button>
         </div>
+      </div>
+
+      {/* Mental Portal Project Banner */}
+      <div className="mb-4 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <h3 className="text-blue-800 font-semibold flex items-center gap-2">
+            {t('healthcare.mentalPortal.title')}
+          </h3>
+          <p className="text-sm text-blue-600 mt-1">
+            {t('healthcare.mentalPortal.desc')}
+          </p>
+        </div>
+        <a
+          href="https://mentalportal.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-shrink-0 flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors shadow-sm text-center"
+        >
+          {t('healthcare.mentalPortal.btn')} <ExternalLink className="w-4 h-4 flex-shrink-0" />
+        </a>
       </div>
 
       {/* Quick Questions */}
@@ -230,10 +251,10 @@ const Healthcare = () => {
               <Heart className="w-8 h-8 text-error" />
             </div>
             <h3 className="text-lg font-semibold text-text-primary mb-2">
-              How are you feeling today?
+              {t('healthcare.howAreYou')}
             </h3>
             <p className="text-sm text-text-secondary max-w-sm">
-              Describe your symptoms, ask for home remedies, or get first-aid advice. Always consult a doctor for severe issues!
+              {t('healthcare.desc')}
             </p>
           </div>
         ) : (
@@ -270,7 +291,7 @@ const Healthcare = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Describe your health condition..."
+              placeholder={t('healthcare.placeholder')}
               className="w-full resize-none bg-transparent px-3 py-2 text-sm outline-none max-h-32"
               rows={1}
             />

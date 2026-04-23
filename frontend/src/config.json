@@ -1,0 +1,13 @@
+{
+  "mode": "production",
+  "environments": {
+    "development": {
+      "apiUrl": "http://localhost:5000/api",
+      "wsUrl": "ws://localhost:5000"
+    },
+    "production": {
+      "apiUrl": "https://gramaai-backend.onrender.com/api",
+      "wsUrl": "wss://gramaai-backend.onrender.com"
+    }
+  }
+}

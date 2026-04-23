@@ -1,6 +1,10 @@
 import axios from 'axios';
+import configData from '../config.json';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
+const isProd = configData.mode === 'production';
+const API_BASE_URL = isProd 
+  ? configData.environments.production.apiUrl 
+  : configData.environments.development.apiUrl;
 
 const api = axios.create({
   baseURL: API_BASE_URL,
