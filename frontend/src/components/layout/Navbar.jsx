@@ -45,7 +45,7 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="bg-surface shadow-sm sticky top-0 z-40" style={{ backgroundColor: 'var(--color-surface)' }}>
+    <nav className="shadow-sm sticky top-0 z-40 backdrop-blur-md bg-white/80 dark:bg-[#1E1E2E]/80 border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -81,22 +81,26 @@ const Navbar = () => {
             {/* Theme Toggle */}
             <motion.button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-gray-100 transition-all duration-200 text-text-secondary"
-              whileTap={{ scale: 0.9 }}
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 text-text-secondary"
+              whileTap={{ scale: 0.8 }}
+              whileHover={{ rotate: 15 }}
               title={theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
             >
-              <motion.div
-                key={theme}
-                initial={{ rotate: -90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                {theme === 'light' ? (
-                  <Moon className="w-5 h-5" />
-                ) : (
-                  <Sun className="w-5 h-5 text-yellow-400" />
-                )}
-              </motion.div>
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={theme}
+                  initial={{ rotate: -180, scale: 0 }}
+                  animate={{ rotate: 0, scale: 1 }}
+                  exit={{ rotate: 180, scale: 0 }}
+                  transition={{ duration: 0.3, type: "spring", stiffness: 200, damping: 10 }}
+                >
+                  {theme === 'light' ? (
+                    <Moon className="w-5 h-5" />
+                  ) : (
+                    <Sun className="w-5 h-5 text-yellow-400" />
+                  )}
+                </motion.div>
+              </AnimatePresence>
             </motion.button>
 
             {/* Language Switcher */}

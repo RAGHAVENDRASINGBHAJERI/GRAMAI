@@ -43,6 +43,24 @@
   }
 }
 
+@layer utilities {
+  .dark .bg-white {
+    background-color: var(--color-surface) !important;
+  }
+  .dark .bg-gray-50,
+  .dark .bg-gray-100 {
+    background-color: var(--color-surface-alt) !important;
+  }
+  .dark .text-gray-800,
+  .dark .text-gray-900 {
+    color: var(--color-text-primary) !important;
+  }
+  .dark .text-gray-500,
+  .dark .text-gray-600 {
+    color: var(--color-text-secondary) !important;
+  }
+}
+
 @layer components {
   .btn-primary {
     @apply bg-primary text-white font-semibold rounded-full px-6 py-3 

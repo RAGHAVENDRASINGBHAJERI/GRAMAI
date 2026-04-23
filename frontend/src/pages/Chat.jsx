@@ -37,9 +37,11 @@ const ChatBubble = ({ message, onSpeak, isSpeaking }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10, x: isUser ? 20 : -20 }}
-      animate={{ opacity: 1, y: 0, x: 0 }}
-      className={`flex gap-3 ${isUser ? 'flex-row-reverse' : ''}`}
+      layout
+      initial={{ opacity: 0, scale: 0.8, y: 20, x: isUser ? 20 : -20 }}
+      animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
+      transition={{ type: "spring", stiffness: 200, damping: 20 }}
+      className={`flex gap-3 ${isUser ? 'flex-row-reverse' : ''} mb-2`}
     >
       <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
         isUser ? 'bg-primary' : 'bg-primary-50'
@@ -103,17 +105,34 @@ const ChatBubble = ({ message, onSpeak, isSpeaking }) => {
 };
 
 const QuickQuestions = ({ onSelect, questions }) => (
-  <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+  <motion.div 
+    initial="hidden"
+    animate="visible"
+    variants={{
+      hidden: { opacity: 0 },
+      visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.1 }
+      }
+    }}
+    className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide px-1"
+  >
     {questions.map((q, i) => (
-      <button
+      <motion.button
         key={i}
+        variants={{
+          hidden: { opacity: 0, y: 20, scale: 0.9 },
+          visible: { opacity: 1, y: 0, scale: 1 }
+        }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
         onClick={() => onSelect(q)}
-        className="flex-shrink-0 px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-text-secondary hover:border-primary hover:text-primary transition-all duration-200 whitespace-nowrap"
+        className="flex-shrink-0 px-4 py-2 bg-white/80 dark:bg-surface/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-full text-sm text-text-secondary hover:border-primary dark:hover:border-primary hover:text-primary transition-colors whitespace-nowrap"
       >
         {q}
-      </button>
+      </motion.button>
     ))}
-  </div>
+  </motion.div>
 );
 
 const Chat = () => {
@@ -271,17 +290,26 @@ const Chat = () => {
       {/* Messages */}
       <div className="flex-1 overflow-y-auto space-y-4 mb-4 px-1">
         {messages.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-full text-center">
-            <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mb-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex flex-col items-center justify-center h-full text-center"
+          >
+            <motion.div 
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 4 }}
+              className="w-16 h-16 bg-primary-50 dark:bg-primary-900 rounded-2xl flex items-center justify-center mb-4"
+            >
               <Sparkles className="w-8 h-8 text-primary" />
-            </div>
+            </motion.div>
             <h3 className="text-lg font-semibold text-text-primary mb-2">
               Ask me anything!
             </h3>
             <p className="text-sm text-text-secondary max-w-sm">
               Ask about farming techniques, health tips, government schemes, or market prices.
             </p>
-          </div>
+          </motion.div>
         ) : (
           messages.map((message) => (
             <ChatBubble
@@ -297,7 +325,13 @@ const Chat = () => {
       </div>
 
       {/* Input Bar */}
-      <div className="bg-surface rounded-2xl border border-gray-200 p-2 shadow-sm">
+      <motion.div 
+        layout
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 200, damping: 20 }}
+        className="bg-white/80 dark:bg-[#1E1E2E]/80 backdrop-blur-md rounded-2xl border border-gray-200 dark:border-gray-800 p-2 shadow-sm"
+      >
         <div className="flex items-end gap-2">
           <button
             onClick={handleVoiceToggle}
@@ -329,7 +363,7 @@ const Chat = () => {
             <Send className="w-5 h-5" />
           </button>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

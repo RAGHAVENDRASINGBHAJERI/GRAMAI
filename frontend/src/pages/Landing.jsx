@@ -122,9 +122,9 @@ const Landing = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-surface-alt">
+    <div className="min-h-screen bg-transparent">
       {/* Navigation */}
-      <nav className="bg-surface shadow-sm">
+      <nav className="shadow-sm sticky top-0 z-40 backdrop-blur-md bg-white/80 dark:bg-[#1E1E2E]/80 border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
@@ -174,38 +174,52 @@ const Landing = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 py-20 md:py-32">
-        <div className="text-center max-w-3xl mx-auto">
+      <section className="max-w-7xl mx-auto px-4 py-20 md:py-32 relative overflow-hidden">
+        <div className="text-center max-w-3xl mx-auto relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, type: 'spring', bounce: 0.4 }}
           >
-            <div className="inline-flex items-center gap-2 bg-primary-50 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <motion.div 
+              whileHover={{ scale: 1.05 }}
+              className="inline-flex items-center gap-2 bg-primary-50 dark:bg-primary-900 border border-primary-100 dark:border-primary-800 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 cursor-pointer"
+            >
               <Star className="w-4 h-4" />
               <span>{t('auth.socialProof')}</span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6 leading-tight">
+            </motion.div>
+            <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600 mb-6 leading-tight pb-2">
               <TypewriterText texts={taglines} />
             </h1>
-            <p className="text-lg md:text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+              className="text-lg md:text-xl text-text-secondary mb-8 max-w-2xl mx-auto font-medium"
+            >
               {t('app.subtitle')}
-            </p>
+            </motion.p>
             <div className="flex items-center justify-center gap-4 flex-wrap">
               {isAuthenticated ? (
-                <Link to="/chat" className="btn-primary text-lg px-8 py-4">
-                  Start Chatting
-                  <ChevronRight className="w-5 h-5 ml-2 inline" />
-                </Link>
-              ) : (
-                <>
-                  <Link to="/register" className="btn-primary text-lg px-8 py-4">
-                    {t('auth.registerBtn')}
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link to="/chat" className="btn-primary text-lg px-8 py-4 shadow-lg shadow-primary/20">
+                    Start Chatting
                     <ChevronRight className="w-5 h-5 ml-2 inline" />
                   </Link>
-                  <Link to="/login" className="btn-secondary text-lg px-8 py-4">
-                    {t('nav.login')}
-                  </Link>
+                </motion.div>
+              ) : (
+                <>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <Link to="/register" className="btn-primary text-lg px-8 py-4 shadow-lg shadow-primary/20">
+                      {t('auth.registerBtn')}
+                      <ChevronRight className="w-5 h-5 ml-2 inline" />
+                    </Link>
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <Link to="/login" className="btn-secondary text-lg px-8 py-4 dark:border-gray-600 dark:text-gray-300">
+                      {t('nav.login')}
+                    </Link>
+                  </motion.div>
                 </>
               )}
             </div>
@@ -214,12 +228,13 @@ const Landing = () => {
       </section>
 
       {/* Features Section */}
-      <section className="bg-surface py-20">
+      <section className="bg-white/40 dark:bg-[#1E1E2E]/40 backdrop-blur-sm py-20 border-y border-gray-100 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, type: 'spring' }}
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
@@ -231,7 +246,13 @@ const Landing = () => {
           </motion.div>
           <div className="grid md:grid-cols-3 gap-6">
             {features.map((feature, index) => (
-              <FeatureCard key={index} {...feature} />
+              <motion.div 
+                key={index} 
+                whileHover={{ y: -5, scale: 1.02 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <FeatureCard {...feature} />
+              </motion.div>
             ))}
           </div>
         </div>
@@ -251,9 +272,10 @@ const Landing = () => {
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="flex items-start gap-4 p-4 rounded-xl hover:bg-white transition-colors"
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: i * 0.1, type: "spring" }}
+                whileHover={{ x: 5, backgroundColor: "rgba(255,255,255,0.5)" }}
+                className="flex items-start gap-4 p-4 rounded-xl transition-colors cursor-pointer dark:hover:bg-gray-800/50"
               >
                 <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-5 h-5 text-primary" />

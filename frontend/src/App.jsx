@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { useAuthStore } from './store/authStore';
 import ProtectedRoute from './router/ProtectedRoute';
@@ -18,14 +18,17 @@ import Community from './pages/Community';
 import Profile from './pages/Profile';
 import AdminDashboard from './pages/admin/AdminDashboard';
 
-// Layout
+// Layout & UI
 import Layout from './components/layout/Layout';
+import AnimatedBackground from './components/ui/AnimatedBackground';
 
 function App() {
   const { isAuthenticated } = useAuthStore();
+  const location = useLocation();
 
   return (
-    <AnimatePresence mode="wait">
+    <>
+      <AnimatedBackground />
       <Routes>
         {/* Public routes */}
         <Route path="/" element={<Landing />} />
@@ -56,7 +59,7 @@ function App() {
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </AnimatePresence>
+    </>
   );
 }
 
