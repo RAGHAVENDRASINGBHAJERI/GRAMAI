@@ -8,7 +8,7 @@ export const useChatStore = create(
       isTyping: false,
       currentLanguage: 'en',
       currentCategory: 'general',
-      useGroq: true, // Default to Groq AI for intelligent responses
+      useGroq: false,
 
       addMessage: (message) =>
         set((state) => ({
@@ -20,10 +20,6 @@ export const useChatStore = create(
       setLanguage: (language) => set({ currentLanguage: language }),
 
       setCategory: (category) => set({ currentCategory: category }),
-
-      toggleGroq: () => set((state) => ({ useGroq: !state.useGroq })),
-
-      setUseGroq: (useGroq) => set({ useGroq }),
 
       clearMessages: () => set({ messages: [] }),
 
@@ -44,7 +40,6 @@ export const useChatStore = create(
       partialize: (state) => ({
         messages: state.messages.slice(-50), // Keep last 50 messages
         currentLanguage: state.currentLanguage,
-        useGroq: state.useGroq,
       }),
     }
   )

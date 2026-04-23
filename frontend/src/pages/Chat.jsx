@@ -62,13 +62,13 @@ const ChatBubble = ({ message, onSpeak, isSpeaking }) => {
           <div className="flex items-center gap-2 mt-1.5 px-1">
             {message.metadata.source && (
               <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full ${
-                message.metadata.source === 'groq-ai'
-                  ? 'bg-purple-100 text-purple-700'
-                  : message.metadata.source === 'ai-engine'
+                message.metadata.source === 'ai-engine'
                   ? 'bg-green-100 text-green-700'
                   : message.metadata.source === 'cache'
                   ? 'bg-blue-100 text-blue-700'
-                  : 'bg-yellow-100 text-yellow-700'
+                  : message.metadata.source === 'offline-fallback'
+                  ? 'bg-yellow-100 text-yellow-700'
+                  : 'bg-gray-100 text-gray-700'
               }`}>
                 {message.metadata.source}
               </span>
@@ -117,7 +117,7 @@ const QuickQuestions = ({ onSelect, questions }) => (
 );
 
 const Chat = () => {
-  const { messages, isTyping, addMessage, setTyping, currentLanguage, useGroq, toggleGroq } = useChatStore();
+  const { messages, isTyping, addMessage, setTyping, currentLanguage } = useChatStore();
   const { t, getSpeechLanguage } = useAppTranslation();
   const { isListening, transcript, startListening, stopListening, speak, isSpeaking, stopSpeaking } = useVoice();
   const { isOnline } = useOffline();
@@ -156,7 +156,7 @@ const Chat = () => {
         response = await chatService.sendQuery({
           question: userMessage.content,
           language: currentLanguage,
-          useGroq: useGroq,
+          useGroq: false,
         });
       } else {
         // Offline fallback - use local TF-IDF logic
@@ -237,31 +237,6 @@ const Chat = () => {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          {/* AI Engine Toggle - Groq is default primary */}
-          <button
-            onClick={toggleGroq}
-            className={`relative flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 active:scale-95 ${
-              useGroq
-                ? 'bg-purple-100 text-purple-700 border border-purple-200'
-                : 'bg-green-100 text-green-700 border border-green-200'
-            }`}
-            title={useGroq ? 'Groq AI is active (click to switch to TF-IDF)' : 'TF-IDF Engine is active (click to switch to Groq AI)'}
-          >
-            <motion.div
-              animate={{ rotate: useGroq ? 360 : 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              {useGroq ? <Brain className="w-3.5 h-3.5" /> : <Zap className="w-3.5 h-3.5" />}
-            </motion.div>
-            <span>{useGroq ? 'Groq AI' : 'TF-IDF'}</span>
-            <motion.div
-              className={`w-1.5 h-1.5 rounded-full ${
-                useGroq ? 'bg-purple-500' : 'bg-green-500'
-              }`}
-              animate={{ scale: [1, 1.3, 1] }}
-              transition={{ repeat: Infinity, duration: 2 }}
-            />
-          </button>
           <button
             onClick={() => useChatStore.getState().clearMessages()}
             className="btn-ghost text-sm flex items-center gap-2"
