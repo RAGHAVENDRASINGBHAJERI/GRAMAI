@@ -14,6 +14,7 @@ export const useVoice = () => {
   const [voicesLoaded, setVoicesLoaded] = useState(false);
   const recognitionRef = useRef(null);
   const voicesRef = useRef([]);
+  const utteranceRef = useRef(null);
 
   // Load available voices and wait for them to be ready
   useEffect(() => {
@@ -129,14 +130,19 @@ export const useVoice = () => {
       return;
     }
 
-    window.speechSynthesis.cancel();
+    if (window.speechSynthesis.speaking) {
+      window.speechSynthesis.cancel();
+    }
     
     // Clean text: remove Markdown and Emojis
     const cleanText = text
       .replace(/[*#_`~]/g, '')
-      .replace(/[\u1F600-\u1F64F\u1F300-\u1F5FF\u1F680-\u1F6FF\u1F700-\u1F77F\u1F780-\u1F7FF\u1F800-\u1F8FF\u1F900-\u1F9FF\u1FA00-\u1FA6F\u1FA70-\u1FAFF\u2600-\u26FF\u2700-\u27BF]/g, '');
+      .replace(/[\u{1F300}-\u{1F9FF}]/gu, '')
+      .replace(/[\u{2600}-\u{26FF}]/gu, '')
+      .replace(/[\u{2700}-\u{27BF}]/gu, '');
 
     const utterance = new SpeechSynthesisUtterance(cleanText);
+    utteranceRef.current = utterance; // Keep reference to prevent garbage collection
     utterance.lang = language;
     utterance.rate = 1.0; 
     utterance.pitch = 1;

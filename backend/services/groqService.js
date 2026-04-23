@@ -82,7 +82,6 @@ const queryGroq = async (question, language = 'en', category = 'general') => {
       ],
       model: 'llama-3.3-70b-versatile',
       temperature: 0.7,
-      max_tokens: 500,
       top_p: 0.9,
       stream: false,
     });
@@ -128,7 +127,6 @@ Translation:`;
             ],
             model: 'llama-3.3-70b-versatile',
             temperature: 0.1,
-            max_tokens: 600,
             top_p: 0.9,
             stream: false,
           });
@@ -249,7 +247,7 @@ const generateLocationContent = async (category, location, language = 'en') => {
       messages: [
         {
           role: 'system',
-          content: `You are GramaAI, a highly accurate automated assistant for Indian farmers. ${boundary}\n\nFormat your ENTIRE response beautifully using Markdown. You MUST structure your response utilizing visually appealing Markdown Tables for data (e.g. Crop Cycles, Prices, Schemes). Liberally use relevant Emojis 🌾🚜💧 for sections to make it engaging. Use # Headers, ## Subheaders, bullet points, and bold text to create a premium UI experience. Be comprehensive but concise. Ensure utmost accuracy regarding location-specific facts.`
+          content: `You are GramaAI, a highly accurate automated assistant for Indian farmers. ${boundary}\n\nFormat your ENTIRE response beautifully using Markdown. You MUST structure your response utilizing visually appealing Markdown Tables for data (e.g. Crop Cycles, Prices, Schemes). IMPORTANT: Ensure Markdown tables have proper spacing and newlines so they render correctly. Liberally use relevant Emojis 🌾🚜💧 for sections to make it engaging. Use # Headers, ## Subheaders, bullet points, and bold text. For Mandi prices and MSP, use the most accurate recent agricultural season data you have; do not invent wildly inaccurate daily figures, but provide realistic baselines with a clear disclaimer.`
         },
         {
           role: 'user',
@@ -258,7 +256,6 @@ const generateLocationContent = async (category, location, language = 'en') => {
       ],
       model: 'llama-3.3-70b-versatile',
       temperature: 0.5, // Lower temperature for higher accuracy
-      max_tokens: 1500,
       top_p: 0.9,
       stream: false,
     });

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const MarkdownRenderer = ({ content, colorTheme = 'primary' }) => {
   // Determine color palette based on theme (primary, blue, red, orange)
@@ -20,6 +21,7 @@ const MarkdownRenderer = ({ content, colorTheme = 'primary' }) => {
 
   return (
     <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
       components={{
         h1: ({ node, ...props }) => (
           <h1 className={`text-3xl font-bold ${theme.text} mb-6 mt-4 pb-2 border-b-2 ${theme.border}`} {...props} />
