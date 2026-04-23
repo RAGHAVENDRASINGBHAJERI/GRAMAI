@@ -24,7 +24,7 @@ connectDB();
 // Security middleware
 app.use(helmet());
 app.use(cors({
-  origin: env.frontendUrl,
+  origin: [env.frontendUrl, 'http://localhost:5173', 'https://gramaai2k26.netlify.app'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
