@@ -1,0 +1,57 @@
+[
+  {
+    "id": "HLT-001",
+    "question_en": "What are the symptoms of dengue fever?",
+    "question_hi": "डेंगू बुखार के लक्षण क्या हैं?",
+    "question_kn": "ಡೆಂಗ್ಯೂ ಜ್ವರದ ಲಕ್ಷಣಗಳು ಯಾವುವು?",
+    "answer_en": "Dengue fever symptoms include: High fever (104°F/40°C), severe headache, pain behind the eyes, muscle and joint pains, nausea, vomiting, swollen glands, and skin rash. Severe dengue can cause bleeding gums, blood in vomit, rapid breathing, and fatigue. If you suspect dengue, visit a government hospital immediately for a free blood test.",
+    "answer_hi": "डेंगू बुखार के लक्षणों में शामिल हैं: तेज बुखार (104°F/40°C), गंभीर सिरदर्द, आंखों के पीछे दर्द, मांसपेशियों और जोड़ों में दर्द, मतली, उल्टी, सूजी हुई ग्रंथियां और त्वचा पर दाने। गंभीर डेंगू में मसूड़ों से खून आना, उल्टी में खून, तेज सांस लेना और थकान हो सकती है। यदि आपको डेंगू का संदेह है, तो मुफ्त रक्त परीक्षण के लिए तुरंत सरकारी अस्पताल जाएं।",
+    "answer_kn": "ಡೆಂಗ್ಯೂ ಜ್ವರದ ಲಕ್ಷಣಗಳು: ಹೆಚ್ಚಿನ ಜ್ವರ (104°F/40°C), ತೀವ್ರ ತಲೆನೋವು, ಕಣ್ಣುಗಳ ಹಿಂದೆ ನೋವು, ಸ್ನಾಯು ಮತ್ತು ಕೀಲು ನೋವು, ವಾಕರಿಕೆ, ವಾಂತಿ, ಊದಿಕೊಂಡ ಗ್ರಂಥಿಗಳು ಮತ್ತು ಚರ್ಮದ ದದ್ದು. ತೀವ್ರ ಡೆಂಗ್ಯೂನಲ್ಲಿ ಒಸಡುಗಳಿಂದ ರಕ್ತಸ್ರಾವ, ವಾಂತಿಯಲ್ಲಿ ರಕ್ತ, ವೇಗದ ಉಸಿರಾಟ ಮತ್ತು ಆಯಾಸ ಕಾಣಿಸಬಹುದು. ಡೆಂಗ್ಯೂ ಶಂಕಿಸಿದರೆ, ಉಚಿತ ರಕ್ತ ಪರೀಕ್ಷೆಗಾಗಿ ತಕ್ಷಣ ಸರ್ಕಾರಿ ಆಸ್ಪತ್ರೆಗೆ ಭೇಟಿ ನೀಡಿ.",
+    "category": "health",
+    "tags": ["dengue", "fever", "symptoms", "mosquito"]
+  },
+  {
+    "id": "HLT-002",
+    "question_en": "How to prevent COVID-19 infection?",
+    "question_hi": "COVID-19 संक्रमण से कैसे बचें?",
+    "question_kn": "COVID-19 ಸೋಂಕನ್ನು ಹೇಗೆ ತಡೆಗಟ್ಟುವುದು?",
+    "answer_en": "To prevent COVID-19: 1) Get vaccinated and take booster doses. 2) Wear a mask in crowded places. 3) Wash hands frequently with soap for 20 seconds. 4) Maintain 6 feet distance from others. 5) Cover mouth when coughing or sneezing. 6) Stay home if you feel unwell. 7) Ensure proper ventilation in rooms. Free vaccination is available at all government health centers.",
+    "answer_hi": "COVID-19 से बचाव के लिए: 1) टीका लगवाएं और बूस्टर खुराक लें। 2) भीड़-भाड़ वाली जगहों पर मास्क पहनें। 3) साबुन से 20 सेकंड तक बार-बार हाथ धोएं। 4) दूसरों से 6 फीट की दूरी बनाए रखें। 5) खांसते या छींकते समय मुंह ढकें। 6) अस्वस्थ महसूस होने पर घर पर रहें। 7) कमरों में उचित वेंटिलेशन सुनिश्चित करें। सभी सरकारी स्वास्थ्य केंद्रों पर मुफ्त टीकाकरण उपलब्ध है।",
+    "answer_kn": "COVID-19 ತಡೆಗಟ್ಟಲು: 1) ಲಸಿಕೆ ಪಡೆಯಿರಿ ಮತ್ತು ಬೂಸ್ಟರ್ ಡೋಸ್ ತೆಗೆದುಕೊಳ್ಳಿ. 2) ಜನದಟ್ಟಣೆಯ ಸ್ಥಳಗಳಲ್ಲಿ ಮಾಸ್ಕ್ ಧರಿಸಿ. 3) ಸಾಬೂನಿನಿಂದ 20 ಸೆಕೆಂಡುಗಳ ಕಾಲ ಆಗಾಗ ಕೈ ತೊಳೆಯಿರಿ. 4) ಇತರರಿಂದ 6 ಅಡಿ ಅಂತರ ಕಾಪಾಡಿ. 5) ಕೆಮ್ಮುವಾಗ ಅಥವಾ ಸೀನುವಾಗ ಬಾಯಿ ಮುಚ್ಚಿ. 6) ಅಸ್ವಸ್ಥರಾಗಿದ್ದರೆ ಮನೆಯಲ್ಲೇ ಇರಿ. 7) ಕೊಠಡಿಗಳಲ್ಲಿ ಸರಿಯಾದ ವಾತಾಯನ ಖಚಿತಪಡಿಸಿ. ಎಲ್ಲಾ ಸರ್ಕಾರಿ ಆರೋಗ್ಯ ಕೇಂದ್ರಗಳಲ್ಲಿ ಉಚಿತ ಲಸಿಕೆ ಲಭ್ಯವಿದೆ.",
+    "category": "health",
+    "tags": ["covid", "prevention", "vaccine", "health"]
+  },
+  {
+    "id": "HLT-003",
+    "question_en": "What should I do if a snake bites me?",
+    "question_hi": "अगर सांप काट ले तो क्या करें?",
+    "question_kn": "ಹಾವು ಕಚ್ಚಿದರೆ ಏನು ಮಾಡಬೇಕು?",
+    "answer_en": "If a snake bites: 1) Stay calm and still - panic spreads venom faster. 2) Remove jewelry and tight clothing near the bite. 3) Keep the bitten limb at or below heart level. 4) Do NOT cut the wound or try to suck out venom. 5) Do NOT apply tourniquet. 6) Get to a hospital immediately - anti-venom is free at government hospitals. 7) Try to remember the snake's appearance for identification. Call 108 for ambulance.",
+    "answer_hi": "सांप काटने पर: 1) शांत रहें - घबराहट से जहर तेजी से फैलता है। 2) काटने वाली जगह के पास से गहने और तंग कपड़े हटा दें। 3) काटे गए अंग को हृदय स्तर पर या नीचे रखें। 4) घाव को न काटें और न ही जहर चूसने की कोशिश करें। 5) टूर्निकेट न लगाएं। 6) तुरंत अस्पताल जाएं - सरकारी अस्पतालों में एंटी-वेनम मुफ्त है। 7) पहचान के लिए सांप की उपस्थिति याद रखें। एम्बुलेंस के लिए 108 डायल करें।",
+    "answer_kn": "ಹಾವು ಕಚ್ಚಿದರೆ: 1) ಶಾಂತವಾಗಿರಿ - ಭಯದಿಂದ ವಿಷ ವೇಗವಾಗಿ ಹರಡುತ್ತದೆ. 2) ಕಚ್ಚಿದ ಭಾಗದ ಬಳಿಯ ಆಭರಣ ಮತ್ತು ಬಿಗಿ ಬಟ್ಟೆ ತೆಗೆಯಿರಿ. 3) ಕಚ್ಚಿದ ಅಂಗವನ್ನು ಹೃದಯ ಮಟ್ಟದಲ್ಲಿ ಅಥವಾ ಕೆಳಗೆ ಇರಿಸಿ. 4) ಗಾಯವನ್ನು ಕತ್ತರಿಸಬೇಡಿ ಅಥವಾ ವಿಷ ಹೀರಲು ಪ್ರಯತ್ನಿಸಬೇಡಿ. 5) ಟೂರ್ನಿಕೆಟ್ ಹಾಕಬೇಡಿ. 6) ತಕ್ಷಣ ಆಸ್ಪತ್ರೆಗೆ ಹೋಗಿ - ಸರ್ಕಾರಿ ಆಸ್ಪತ್ರೆಗಳಲ್ಲಿ ಆಂಟಿ-ವೆನಮ್ ಉಚಿತ. 7) ಗುರುತಿಸಲು ಹಾವಿನ ನೋಟ ನೆನಪಿಡಿ. ಆಂಬ್ಯುಲೆನ್ಸ್ಗಾಗಿ 108 ಡಯಲ್ ಮಾಡಿ.",
+    "category": "health",
+    "tags": ["snake bite", "emergency", "first aid", "venom"]
+  },
+  {
+    "id": "HLT-004",
+    "question_en": "How to treat diarrhea at home?",
+    "question_hi": "घर पर दस्त का इलाज कैसे करें?",
+    "question_kn": "ಮನೆಯಲ್ಲಿ ಅತಿಸಾರವನ್ನು ಹೇಗೆ ಚಿಕಿತ್ಸೆ ಮಾಡುವುದು?",
+    "answer_en": "For diarrhea treatment at home: 1) Drink ORS (Oral Rehydration Solution) frequently - mix 6 teaspoons sugar and 1/2 teaspoon salt in 1 liter clean water. 2) Continue eating - eat small, frequent meals of soft foods like khichdi, rice, bananas. 3) Drink plenty of boiled and cooled water. 4) Avoid spicy, oily foods and milk. 5) Wash hands with soap after using toilet. 6) If blood in stool or severe dehydration (dry mouth, no urine for 6 hours), visit a doctor immediately.",
+    "answer_hi": "घर पर दस्त के इलाज के लिए: 1) बार-बार ORS (ओरल रिहाइड्रेशन सॉल्यूशन) पिएं - 1 लीटर साफ पानी में 6 चम्मच चीनी और 1/2 चम्मच नमक मिलाएं। 2) खाना जारी रखें - खिचड़ी, चावल, केले जैसे नरम भोजन की छोटी-छोटी मात्रा में बार-बार खाएं। 3) खूब उबला और ठंडा पानी पिएं। 4) मसालेदार, तैलीय भोजन और दूध से बचें। 5) शौचालय उपयोग के बाद साबुन से हाथ धोएं। 6) यदि मल में खून हो या गंभीर निर्जलीकरण (सूखा मुंह, 6 घंटे से पेशाब नहीं) हो, तो तुरंत डॉक्टर से मिलें।",
+    "answer_kn": "ಮನೆಯಲ್ಲಿ ಅತಿಸಾರ ಚಿಕಿತ್ಸೆಗಾಗಿ: 1) ಆಗಾಗ ORS (ಓರಲ್ ರೀಹೈಡ್ರೇಶನ್ ದ್ರಾವಣ) ಕುಡಿಯಿರಿ - 1 ಲೀಟರ್ ಶುದ್ಧ ನೀರಿನಲ್ಲಿ 6 ಟೀಸ್ಪೂನ್ ಸಕ್ಕರೆ ಮತ್ತು 1/2 ಟೀಸ್ಪೂನ್ ಉಪ್ಪು ಬೆರೆಸಿ. 2) ಊಟ ಮುಂದುವರಿಸಿ - ಖಿಚಡಿ, ಅನ್ನ, ಬಾಳೆಹಣ್ಣುಗಳಂತಹ ಮೃದು ಆಹಾರವನ್ನು ಸಣ್ಣ ಪ್ರಮಾಣದಲ್ಲಿ ಆಗಾಗ ಸೇವಿಸಿ. 3) ಸಾಕಷ್ಟು ಕುದಿಸಿ ತಣ್ಣಗಾದ ನೀರು ಕುಡಿಯಿರಿ. 4) ಮಸಾಲೆ, ಎಣ್ಣೆ ಆಹಾರ ಮತ್ತು ಹಾಲು ತಪ್ಪಿಸಿ. 5) ಶೌಚಾಲಯ ಬಳಕೆ ನಂತರ ಸಾಬೂನಿನಿಂದ ಕೈ ತೊಳೆಯಿರಿ. 6) ಮಲದಲ್ಲಿ ರಕ್ತವಿದ್ದರೆ ಅಥವಾ ತೀವ್ರ ನಿರ್ಜಲೀಕರಣ (ಒಣ ಬಾಯಿ, 6 ಗಂಟೆ ಮೂತ್ರವಿಲ್ಲ) ಇದ್ದರೆ, ತಕ್ಷಣ ವೈದ್ಯರನ್ನು ಭೇಟಿ ಮಾಡಿ.",
+    "category": "health",
+    "tags": ["diarrhea", "ORS", "dehydration", "home remedy"]
+  },
+  {
+    "id": "HLT-005",
+    "question_en": "Where can I get free health checkup?",
+    "question_hi": "मुफ्त स्वास्थ्य जांच कहां मिल सकती है?",
+    "question_kn": "ಉಚಿತ ಆರೋಗ್ಯ ತಪಾಸಣೆ ಎಲ್ಲಿ ಸಿಗುತ್ತದೆ?",
+    "answer_en": "Free health checkups are available at: 1) Primary Health Centers (PHC) - basic checkups and medicines free. 2) Community Health Centers (CHC) - specialist consultations. 3) District Hospitals - full diagnostic services. 4) Ayushman Bharat Health and Wellness Centers - near your village. 5) National Health Mission camps - mobile health vans visit villages. Call 104 for health information or visit your nearest PHC.",
+    "answer_hi": "मुफ्त स्वास्थ्य जांच उपलब्ध है: 1) प्राथमिक स्वास्थ्य केंद्र (PHC) - बुनियादी जांच और दवाएं मुफ्त। 2) सामुदायिक स्वास्थ्य केंद्र (CHC) - विशेषज्ञ परामर्श। 3) जिला अस्पताल - पूर्ण निदान सेवाएं। 4) आयुष्मान भारत स्वास्थ्य और कल्याण केंद्र - आपके गांव के पास। 5) राष्ट्रीय स्वास्थ्य मिशन शिविर - मोबाइल स्वास्थ्य वैन गांवों में जाती हैं। स्वास्थ्य जानकारी के लिए 104 डायल करें या अपने नजदीकी PHC पर जाएं।",
+    "answer_kn": "ಉಚಿತ ಆರೋಗ್ಯ ತಪಾಸಣೆ ಲಭ್ಯವಿದೆ: 1) ಪ್ರಾಥಮಿಕ ಆರೋಗ್ಯ ಕೇಂದ್ರಗಳು (PHC) - ಮೂಲ ತಪಾಸಣೆ ಮತ್ತು ಔಷಧಿಗಳು ಉಚಿತ. 2) ಸಮುದಾಯ ಆರೋಗ್ಯ ಕೇಂದ್ರಗಳು (CHC) - ತಜ್ಞರ ಸಮಾಲೋಚನೆ. 3) ಜಿಲ್ಲಾ ಆಸ್ಪತ್ರೆಗಳು - ಸಂಪೂರ್ಣ ರೋಗನಿರ್ಣಯ ಸೇವೆಗಳು. 4) ಆಯುಷ್ಮಾನ್ ಭಾರತ್ ಆರೋಗ್ಯ ಮತ್ತು ಕ್ಷೇಮ ಕೇಂದ್ರಗಳು - ನಿಮ್ಮ ಹಳ್ಳಿಯ ಬಳಿ. 5) ರಾಷ್ಟ್ರೀಯ ಆರೋಗ್ಯ ಅಭಿಯಾನ ಶಿಬಿರಗಳು - ಮೊಬೈಲ್ ಆರೋಗ್ಯ ವಾಹನಗಳು ಹಳ್ಳಿಗಳಿಗೆ ಭೇಟಿ ನೀಡುತ್ತವೆ. ಆರೋಗ್ಯ ಮಾಹಿತಿಗಾಗಿ 104 ಡಯಲ್ ಮಾಡಿ ಅಥವಾ ನಿಮ್ಮ ಹತ್ತಿರದ PHC ಗೆ ಭೇಟಿ ನೀಡಿ.",
+    "category": "health",
+    "tags": ["health checkup", "free", "PHC", "government"]
+  }
+]

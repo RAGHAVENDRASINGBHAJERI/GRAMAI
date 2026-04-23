@@ -1,0 +1,101 @@
+{
+  "app": {
+    "name": "GramaAI Lite",
+    "tagline": "Your AI Assistant for Rural India",
+    "subtitle": "Ask questions about farming, health, government schemes, and market prices"
+  },
+  "nav": {
+    "home": "Home",
+    "chat": "Chat",
+    "agriculture": "Agriculture",
+    "schemes": "Schemes",
+    "healthcare": "Healthcare",
+    "mandi": "Mandi Prices",
+    "profile": "Profile",
+    "admin": "Admin",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout"
+  },
+  "auth": {
+    "welcome": "Welcome Back",
+    "createAccount": "Create Account",
+    "email": "Email",
+    "phone": "Phone Number",
+    "password": "Password",
+    "name": "Full Name",
+    "language": "Language Preference",
+    "loginBtn": "Login",
+    "registerBtn": "Register",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "socialProof": "Trusted by 10,000+ farmers"
+  },
+  "chat": {
+    "title": "AI Assistant",
+    "placeholder": "Ask me anything...",
+    "typing": "AI is thinking...",
+    "voiceBtn": "Voice input",
+    "sendBtn": "Send",
+    "source": "Source",
+    "confidence": "Confidence",
+    "suggestions": "Quick Questions",
+    "offline": "You are offline. Using cached data.",
+    "error": "Something went wrong. Please try again."
+  },
+  "agriculture": {
+    "title": "Agriculture Dashboard",
+    "cropCalendar": "Crop Calendar",
+    "weather": "Weather Summary",
+    "tips": "Quick Tips",
+    "askAI": "Ask AI about farming"
+  },
+  "schemes": {
+    "title": "Government Schemes",
+    "search": "Search schemes...",
+    "filter": "Filter",
+    "state": "State",
+    "ministry": "Ministry",
+    "learnMore": "Learn More",
+    "save": "Save",
+    "saved": "Saved"
+  },
+  "healthcare": {
+    "title": "Healthcare",
+    "symptomChecker": "Symptom Checker",
+    "emergency": "Emergency Numbers",
+    "tips": "Health Tips",
+    "nearby": "Nearby Health Centers"
+  },
+  "mandi": {
+    "title": "Mandi Prices",
+    "crop": "Crop",
+    "state": "State",
+    "minPrice": "Min Price",
+    "maxPrice": "Max Price",
+    "modalPrice": "Modal Price",
+    "lastUpdated": "Last Updated",
+    "offlineBanner": "Prices cached offline"
+  },
+  "profile": {
+    "title": "My Profile",
+    "edit": "Edit Profile",
+    "history": "Query History",
+    "saved": "Saved Queries",
+    "export": "Export My Data",
+    "language": "Language"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "offline": "You are offline"
+  }
+}

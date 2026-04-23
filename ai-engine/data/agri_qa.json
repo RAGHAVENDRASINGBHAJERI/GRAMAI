@@ -1,0 +1,57 @@
+[
+  {
+    "id": "AGR-001",
+    "question_en": "What is the best time to sow wheat?",
+    "question_hi": "गेहूं बोने का सबसे अच्छा समय क्या है?",
+    "question_kn": "ಗೋಧಿ ಬಿತ್ತನೆಗೆ ಉತ್ತಮ ಸಮಯ ಯಾವುದು?",
+    "answer_en": "Wheat is best sown between October and December for the Rabi season. The ideal temperature for sowing is 20-25°C. Use certified seeds at a rate of 100-125 kg per hectare. Ensure proper field preparation with 2-3 ploughings followed by planking.",
+    "answer_hi": "गेहूं की बुवाई का सबसे अच्छा समय अक्टूबर से दिसंबर के बीच रबी के मौसम में है। बुवाई के लिए आदर्श तापमान 20-25°C है। प्रति हेक्टेयर 100-125 किलोग्राम की दर से प्रमाणित बीजों का उपयोग करें। 2-3 जुताई के बाद पाटा लगाकर खेत की उचित तैयारी सुनिश्चित करें।",
+    "answer_kn": "ಗೋಧಿ ಬಿತ್ತನೆಗೆ ಉತ್ತಮ ಸಮಯ ಅಕ್ಟೋಬರ್ ನಿಂದ ಡಿಸೆಂಬರ್ ವರೆಗೆ ರಬಿ ಋತುವಿನಲ್ಲಿ. ಬಿತ್ತನೆಗೆ ಸೂಕ್ತ ಉಷ್ಣಾಂಶ 20-25°C. ಪ್ರತಿ ಹೆಕ್ಟೇರಿಗೆ 100-125 ಕೆಜಿ ದರದಲ್ಲಿ ಪ್ರಮಾಣೀಕೃತ ಬೀಜಗಳನ್ನು ಬಳಸಿ. 2-3 ಉಳುಮೆಗಳ ನಂತರ ಪ್ಲ್ಯಾಂಕಿಂಗ್ ಮಾಡಿ ಭೂಮಿಯನ್ನು ಸರಿಯಾಗಿ ಸಿದ್ಧಪಡಿಸಿ.",
+    "category": "agriculture",
+    "tags": ["wheat", "sowing", "rabi", "crops"]
+  },
+  {
+    "id": "AGR-002",
+    "question_en": "How to control pests in paddy crops?",
+    "question_hi": "धान की फसल में कीटों को कैसे नियंत्रित करें?",
+    "question_kn": "ಭತ್ತದ ಬೆಳೆಯಲ್ಲಿ ಕೀಟಗಳನ್ನು ಹೇಗೆ ನಿಯಂತ್ರಿಸುವುದು?",
+    "answer_en": "For paddy pest control: 1) Use resistant varieties like IR-64. 2) Apply Neem oil (5ml/liter) for leaf folder. 3) For stem borer, use Carbofuran 3G at 33 kg/ha. 4) Install pheromone traps at 12-15 per hectare. 5) Maintain 2-3 inches of water level. 6) Encourage natural predators like spiders and dragonflies.",
+    "answer_hi": "धान कीट नियंत्रण के लिए: 1) IR-64 जैसी प्रतिरोधी किस्मों का उपयोग करें। 2) पत्ती लपेटक के लिए नीम का तेल (5 मिली/लीटर) लगाएं। 3) तना छेदक के लिए 33 किग्रा/हेक्टेयर की दर से कार्बोफ्यूरान 3जी का उपयोग करें। 4) प्रति हेक्टेयर 12-15 फेरोमोन ट्रैप लगाएं। 5) 2-3 इंच पानी का स्तर बनाए रखें। 6) मकड़ियों और ड्रैगनफ्लाइज जैसे प्राकृतिक शिकारियों को प्रोत्साहित करें।",
+    "answer_kn": "ಭತ್ತದ ಕೀಟ ನಿಯಂತ್ರಣಕ್ಕಾಗಿ: 1) IR-64 ನಂತಹ ನಿರೋಧಕ ತಳಿಗಳನ್ನು ಬಳಸಿ. 2) ಎಲೆ ಸುರುಳಿ ಕೀಟಕ್ಕೆ ಬೇವಿನ ಎಣ್ಣೆ (5 ಮಿಲಿ/ಲೀಟರ್) ಬಳಸಿ. 3) ಕಾಂಡ ಕೊರಕ ಕೀಟಕ್ಕೆ ಕಾರ್ಬೋಫ್ಯೂರಾನ್ 3G ಅನ್ನು 33 ಕೆಜಿ/ಹೆಕ್ಟೇರ್ ದರದಲ್ಲಿ ಬಳಸಿ. 4) ಪ್ರತಿ ಹೆಕ್ಟೇರಿಗೆ 12-15 ಫೆರೋಮೋನ್ ಬಲೆಗಳನ್ನು ಅಳವಡಿಸಿ. 5) 2-3 ಇಂಚು ನೀರಿನ ಮಟ್ಟ ಕಾಪಾಡಿ. 6) ಜೇಡಗಳು ಮತ್ತು ಡ್ರ್ಯಾಗನ್‌ಫ್ಲೈಗಳಂತಹ ನೈಸರ್ಗಿಕ ಪರಭಕ್ಷಕಗಳನ್ನು ಪ್ರೋತ್ಸಾಹಿಸಿ.",
+    "category": "agriculture",
+    "tags": ["paddy", "pest control", "rice", "farming"]
+  },
+  {
+    "id": "AGR-003",
+    "question_en": "What fertilizers should I use for tomato plants?",
+    "question_hi": "टमाटर के पौधों के लिए कौन सी खाद का उपयोग करें?",
+    "question_kn": "ಟೊಮೇಟೊ ಸಸ್ಯಗಳಿಗೆ ಯಾವ ಗೊಬ್ಬರಗಳನ್ನು ಬಳಸಬೇಕು?",
+    "answer_en": "For tomato plants: Apply 10-15 tons of well-decomposed FYM (Farm Yard Manure) per hectare before planting. Use NPK 60:50:50 kg/ha as basal dose. Side-dress with 50 kg N/ha at 30 days after transplanting. Apply calcium nitrate to prevent blossom end rot. Foliar spray of 19:19:19 at 5g/liter during flowering stage.",
+    "answer_hi": "टमाटर के पौधों के लिए: रोपण से पहले प्रति हेक्टेयर 10-15 टन अच्छी तरह सड़ी हुई गोबर की खाद डालें। आधार खुराक के रूप में NPK 60:50:50 किग्रा/हेक्टेयर का उपयोग करें। रोपाई के 30 दिन बाद 50 किग्रा नाइट्रोजन/हेक्टेयर की साइड-ड्रेसिंग करें। फूल आने की अवस्था में 5 ग्राम/लीटर की दर से 19:19:19 का पर्णीय छिड़काव करें।",
+    "answer_kn": "ಟೊಮೇಟೊ ಸಸ್ಯಗಳಿಗೆ: ನೆಡುವ ಮೊದಲು ಪ್ರತಿ ಹೆಕ್ಟೇರಿಗೆ 10-15 ಟನ್ ಚೆನ್ನಾಗಿ ಕೊಳೆತ ಸಗಣಿ ಗೊಬ್ಬರ (FYM) ಹಾಕಿ. ಆಧಾರ ಡೋಸ್ ಆಗಿ NPK 60:50:50 ಕೆಜಿ/ಹೆಕ್ಟೇರ್ ಬಳಸಿ. ನೆಟ್ಟ 30 ದಿನಗಳ ನಂತರ 50 ಕೆಜಿ N/ಹೆಕ್ಟೇರ್ ಸೈಡ್-ಡ್ರೆಸ್ಸಿಂಗ್ ಮಾಡಿ. ಹೂವಿನ ಹಂತದಲ್ಲಿ 5 ಗ್ರಾಂ/ಲೀಟರ್ ದರದಲ್ಲಿ 19:19:19 ನ ಎಲೆ ಸಿಂಪರಣೆ ಮಾಡಿ.",
+    "category": "agriculture",
+    "tags": ["tomato", "fertilizer", "vegetables", "farming"]
+  },
+  {
+    "id": "AGR-004",
+    "question_en": "How to prepare organic pesticide at home?",
+    "question_hi": "घर पर जैविक कीटनाशक कैसे तैयार करें?",
+    "question_kn": "ಮನೆಯಲ್ಲಿ ಸಾವಯವ ಕೀಟನಾಶಕವನ್ನು ಹೇಗೆ ತಯಾರಿಸುವುದು?",
+    "answer_en": "To make organic pesticide: Mix 1 liter of cow urine, 100g neem leaves, 100g garlic paste, and 50g green chili in 10 liters of water. Boil for 30 minutes, cool, and strain. Add 10ml of this solution per liter of water for spraying. This works against aphids, caterpillars, and most soft-bodied insects. Apply early morning or evening.",
+    "answer_hi": "जैविक कीटनाशक बनाने के लिए: 10 लीटर पानी में 1 लीटर गौमूत्र, 100 ग्राम नीम की पत्तियां, 100 ग्राम लहसुन का पेस्ट और 50 ग्राम हरी मिर्च मिलाएं। 30 मिनट तक उबालें, ठंडा करें और छान लें। छिड़काव के लिए इस घोल का 10 मिली प्रति लीटर पानी में मिलाएं। यह एफिड्स, कैटरपिलर और अधिकांश मुलायम शरीर वाले कीटों के खिलाफ काम करता है। सुबह या शाम को लगाएं।",
+    "answer_kn": "ಸಾವಯವ ಕೀಟನಾಶಕ ತಯಾರಿಸಲು: 10 ಲೀಟರ್ ನೀರಿನಲ್ಲಿ 1 ಲೀಟರ್ ಹಸುವಿನ ಮೂತ್ರ, 100 ಗ್ರಾಂ ಬೇವಿನ ಎಲೆಗಳು, 100 ಗ್ರಾಂ ಬೆಳ್ಳುಳ್ಳಿ ಪೇಸ್ಟ್ ಮತ್ತು 50 ಗ್ರಾಂ ಹಸಿರು ಮೆಣಸು ಮಿಶ್ರಣ ಮಾಡಿ. 30 ನಿಮಿಷ ಕುದಿಸಿ, ತಣ್ಣಗಾಗಿಸಿ ಮತ್ತು ಸೋಸಿ. ಸಿಂಪರಣೆಗೆ ಪ್ರತಿ ಲೀಟರ್ ನೀರಿಗೆ 10 ಮಿಲಿ ಈ ದ್ರಾವಣ ಸೇರಿಸಿ. ಇದು ಎಫಿಡ್ಸ್, ಕ್ಯಾಟರ್ಪಿಲ್ಲರ್ಗಳು ಮತ್ತು ಹೆಚ್ಚಿನ ಮೃದು ದೇಹದ ಕೀಟಗಳ ವಿರುದ್ಧ ಕೆಲಸ ಮಾಡುತ್ತದೆ. ಬೆಳಿಗ್ಗೆ ಅಥವಾ ಸಂಜೆ ಸಿಂಪರಿಸಿ.",
+    "category": "agriculture",
+    "tags": ["organic", "pesticide", "natural", "farming"]
+  },
+  {
+    "id": "AGR-005",
+    "question_en": "What is the best season for growing vegetables?",
+    "question_hi": "सब्जियां उगाने का सबसे अच्छा मौसम कौन सा है?",
+    "question_kn": "ತರಕಾರಿಗಳನ್ನು ಬೆಳೆಯಲು ಉತ್ತಮ ಋತು ಯಾವುದು?",
+    "answer_en": "Vegetable growing seasons in India: Summer (Feb-Mar): Cucumber, bitter gourd, bottle gourd, pumpkin. Rainy (Jun-Jul): Tomato, brinjal, chili, okra. Winter (Oct-Nov): Cabbage, cauliflower, peas, carrot, radish, spinach. Leafy vegetables can be grown year-round with proper irrigation. Always start with soil testing for best results.",
+    "answer_hi": "भारत में सब्जी उगाने के मौसम: गर्मी (फरवरी-मार्च): खीरा, करेला, लौकी, कद्दू। बरसात (जून-जुलाई): टमाटर, बैंगन, मिर्च, भिंडी। सर्दी (अक्टूबर-नवंबर): पत्तागोभी, फूलगोभी, मटर, गाजर, मूली, पालक। पत्तेदार सब्जियां उचित सिंचाई के साथ साल भर उगाई जा सकती हैं। सर्वोत्तम परिणामों के लिए हमेशा मिट्टी परीक्षण से शुरुआत करें।",
+    "answer_kn": "ಭಾರತದಲ್ಲಿ ತರಕಾರಿ ಬೆಳೆಯುವ ಋತುಗಳು: ಬೇಸಿಗೆ (ಫೆಬ್ರವರಿ-ಮಾರ್ಚ್): ಸೌತೆಕಾಯಿ, ಹಾಗಲಕಾಯಿ, ಲೌಕಿ, ಕುಂಬಳಕಾಯಿ. ಮಳೆಗಾಲ (ಜೂನ್-ಜುಲೈ): ಟೊಮೇಟೊ, ಬದನೆಕಾಯಿ, ಮೆಣಸಿನಕಾಯಿ, ಬೆಂಡೆಕಾಯಿ. ಚಳಿಗಾಲ (ಅಕ್ಟೋಬರ್-ನವೆಂಬರ್): ಎಲೆಕೋಸು, ಹೂಕೋಸು, ಬಟಾಣಿ, ಕ್ಯಾರೆಟ್, ಮೂಲಂಗಿ, ಪಾಲಕ್. ಎಲೆ ತರಕಾರಿಗಳನ್ನು ಸರಿಯಾದ ನೀರಾವರಿಯೊಂದಿಗೆ ವರ್ಷಪೂರ್ತಿ ಬೆಳೆಯಬಹುದು. ಉತ್ತಮ ಫಲಿತಾಂಶಕ್ಕಾಗಿ ಯಾವಾಗಲೂ ಮಣ್ಣು ಪರೀಕ್ಷೆಯಿಂದ ಪ್ರಾರಂಭಿಸಿ.",
+    "category": "agriculture",
+    "tags": ["vegetables", "season", "farming", "gardening"]
+  }
+]

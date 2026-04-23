@@ -1,0 +1,57 @@
+[
+  {
+    "id": "MND-001",
+    "question_en": "What is the current price of wheat in the market?",
+    "question_hi": "बाजार में गेहूं का वर्तमान मूल्य क्या है?",
+    "question_kn": "ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ಗೋಧಿಯ ಪ್ರಸ್ತುತ ಬೆಲೆ ಎಷ್ಟು?",
+    "answer_en": "The Minimum Support Price (MSP) for wheat for the current season is ₹2,275 per quintal. Market prices vary by state and quality. In major mandis: Punjab ₹2,150-2,275, Uttar Pradesh ₹2,100-2,250, Madhya Pradesh ₹2,050-2,200 per quintal. Check your local mandi for daily updated prices. The government procures wheat at MSP through FCI and state agencies.",
+    "answer_hi": "वर्तमान सीजन के लिए गेहूं का न्यूनतम समर्थन मूल्य (MSP) ₹2,275 प्रति क्विंटल है। बाजार मूल्य राज्य और गुणवत्ता के अनुसार भिन्न होते हैं। प्रमुख मंडियों में: पंजाब ₹2,150-2,275, उत्तर प्रदेश ₹2,100-2,250, मध्य प्रदेश ₹2,050-2,200 प्रति क्विंटल। दैनिक अपडेटेड मूल्यों के लिए अपनी स्थानीय मंडी देखें। सरकार FCI और राज्य एजेंसियों के माध्यम से MSP पर गेहूं की खरीद करती है।",
+    "answer_kn": "ಪ್ರಸ್ತುತ ಋತುವಿಗೆ ಗೋಧಿಯ ಕನಿಷ್ಠ ಬೆಂಬಲ ಬೆಲೆ (MSP) ಪ್ರತಿ ಕ್ವಿಂಟಲ್ಗೆ ₹2,275 ಆಗಿದೆ. ಮಾರುಕಟ್ಟೆ ಬೆಲೆಗಳು ರಾಜ್ಯ ಮತ್ತು ಗುಣಮಟ್ಟವನ್ನು ಅವಲಂಬಿಸಿ ಬದಲಾಗುತ್ತವೆ. ಪ್ರಮುಖ ಮಂಡಿಗಳಲ್ಲಿ: ಪಂಜಾಬ್ ₹2,150-2,275, ಉತ್ತರ ಪ್ರದೇಶ ₹2,100-2,250, ಮಧ್ಯ ಪ್ರದೇಶ ₹2,050-2,200 ಪ್ರತಿ ಕ್ವಿಂಟಲ್ಗೆ. ದೈನಂದಿನ ನವೀಕರಿಸಿದ ಬೆಲೆಗಳಿಗಾಗಿ ನಿಮ್ಮ ಸ್ಥಳೀಯ ಮಂಡಿಯನ್ನು ಪರಿಶೀಲಿಸಿ. ಸರ್ಕಾರವು FCI ಮತ್ತು ರಾಜ್ಯ ಸಂಸ್ಥೆಗಳ ಮೂಲಕ MSP ಯಲ್ಲಿ ಗೋಧಿಯನ್ನು ಖರೀದಿಸುತ್ತದೆ.",
+    "category": "mandi",
+    "tags": ["wheat", "MSP", "price", "mandi"]
+  },
+  {
+    "id": "MND-002",
+    "question_en": "What is the MSP for paddy this year?",
+    "question_hi": "इस वर्ष धान का MSP क्या है?",
+    "question_kn": "ಈ ವರ್ಷ ಭತ್ತದ MSP ಎಷ್ಟು?",
+    "answer_en": "The Minimum Support Price (MSP) for paddy (common grade) is ₹2,183 per quintal for the current season. For Grade A paddy, it is ₹2,203 per quintal. The government also provides a bonus of ₹75-100 per quintal in some states. Paddy procurement happens through FCI and state agencies during the Kharif marketing season. Farmers can sell at MSP at designated procurement centers.",
+    "answer_hi": "वर्तमान सीजन के लिए धान (सामान्य ग्रेड) का न्यूनतम समर्थन मूल्य (MSP) ₹2,183 प्रति क्विंटल है। ग्रेड A धान के लिए यह ₹2,203 प्रति क्विंटल है। सरकार कुछ राज्यों में ₹75-100 प्रति क्विंटल का बोनस भी प्रदान करती है। धान की खरीद खरीफ विपणन सीजन के दौरान FCI और राज्य एजेंसियों के माध्यम से होती है। किसान निर्धारित खरीद केंद्रों पर MSP पर बेच सकते हैं।",
+    "answer_kn": "ಪ್ರಸ್ತುತ ಋತುವಿಗೆ ಭತ್ತದ (ಸಾಮಾನ್ಯ ದರ್ಜೆ) ಕನಿಷ್ಠ ಬೆಂಬಲ ಬೆಲೆ (MSP) ಪ್ರತಿ ಕ್ವಿಂಟಲ್ಗೆ ₹2,183 ಆಗಿದೆ. ಗ್ರೇಡ್ A ಭತ್ತಕ್ಕೆ ಇದು ಪ್ರತಿ ಕ್ವಿಂಟಲ್ಗೆ ₹2,203 ಆಗಿದೆ. ಕೆಲವು ರಾಜ್ಯಗಳಲ್ಲಿ ಸರ್ಕಾರವು ಪ್ರತಿ ಕ್ವಿಂಟಲ್ಗೆ ₹75-100 ಬೋನಸ್ ನೀಡುತ್ತದೆ. ಖರೀಫ್ ಮಾರುಕಟ್ಟೆ ಋತುವಿನಲ್ಲಿ FCI ಮತ್ತು ರಾಜ್ಯ ಸಂಸ್ಥೆಗಳ ಮೂಲಕ ಭತ್ತ ಖರೀದಿ ನಡೆಯುತ್ತದೆ. ರೈತರು ನಿಗದಿತ ಖರೀದಿ ಕೇಂದ್ರಗಳಲ್ಲಿ MSP ಯಲ್ಲಿ ಮಾರಾಟ ಮಾಡಬಹುದು.",
+    "category": "mandi",
+    "tags": ["paddy", "MSP", "rice", "mandi"]
+  },
+  {
+    "id": "MND-003",
+    "question_en": "How to check mandi prices online?",
+    "question_hi": "ऑनलाइन मंडी मूल्य कैसे देखें?",
+    "question_kn": "ಆನ್‌ಲೈನ್‌ನಲ್ಲಿ ಮಂಡಿ ಬೆಲೆಗಳನ್ನು ಹೇಗೆ ಪರಿಶೀಲಿಸುವುದು?",
+    "answer_en": "You can check mandi prices online through: 1) e-NAM portal (enam.gov.in) - shows daily prices from 1,000+ mandis. 2) AGMARKNET (agmarknet.gov.in) - historical price data. 3) Kisan Suvidha mobile app. 4) Your state's agriculture department website. 5) SMS service - send 'MSP <crop name>' to 51969. These platforms show minimum, maximum, and modal prices for all major crops.",
+    "answer_hi": "आप ऑनलाइन मंडी मूल्य देख सकते हैं: 1) e-NAM पोर्टल (enam.gov.in) - 1,000+ मंडियों से दैनिक मूल्य दिखाता है। 2) AGMARKNET (agmarknet.gov.in) - ऐतिहासिक मूल्य डेटा। 3) किसान सुविधा मोबाइल ऐप। 4) आपके राज्य का कृषि विभाग की वेबसाइट। 5) SMS सेवा - 'MSP <फसल का नाम>' 51969 पर भेजें। ये प्लेटफॉर्म सभी प्रमुख फसलों के लिए न्यूनतम, अधिकतम और मॉडल मूल्य दिखाते हैं।",
+    "answer_kn": "ನೀವು ಆನ್‌ಲೈನ್‌ನಲ್ಲಿ ಮಂಡಿ ಬೆಲೆಗಳನ್ನು ಪರಿಶೀಲಿಸಬಹುದು: 1) e-NAM ಪೋರ್ಟಲ್ (enam.gov.in) - 1,000+ ಮಂಡಿಗಳಿಂದ ದೈನಂದಿನ ಬೆಲೆಗಳನ್ನು ತೋರಿಸುತ್ತದೆ. 2) AGMARKNET (agmarknet.gov.in) - ಐತಿಹಾಸಿಕ ಬೆಲೆ ಡೇಟಾ. 3) ಕಿಸಾನ್ ಸುವಿಧಾ ಮೊಬೈಲ್ ಅಪ್ಲಿಕೇಶನ್. 4) ನಿಮ್ಮ ರಾಜ್ಯದ ಕೃಷಿ ಇಲಾಖೆ ವೆಬ್‌ಸೈಟ್. 5) SMS ಸೇವೆ - 'MSP <ಬೆಳೆ ಹೆಸರು>' ಅನ್ನು 51969 ಗೆ ಕಳುಹಿಸಿ. ಈ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳು ಎಲ್ಲಾ ಪ್ರಮುಖ ಬೆಳೆಗಳಿಗೆ ಕನಿಷ್ಠ, ಗರಿಷ್ಠ ಮತ್ತು ಮಾದರಿ ಬೆಲೆಗಳನ್ನು ತೋರಿಸುತ್ತವೆ.",
+    "category": "mandi",
+    "tags": ["mandi", "online", "e-NAM", "price check"]
+  },
+  {
+    "id": "MND-004",
+    "question_en": "What is the price of tomatoes in the market?",
+    "question_hi": "बाजार में टमाटर का मूल्य क्या है?",
+    "question_kn": "ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ಟೊಮೇಟೊ ಬೆಲೆ ಎಷ್ಟು?",
+    "answer_en": "Tomato prices vary significantly by season and region. Current approximate prices: Wholesale ₹15-40 per kg, Retail ₹25-60 per kg. Prices are lowest during peak season (Dec-Feb) and highest during off-season (Jun-Aug). Check your local mandi for daily rates. For the best prices, sell in bulk at the nearest regulated mandi rather than to local middlemen.",
+    "answer_hi": "टमाटर के मूल्य मौसम और क्षेत्र के अनुसार काफी भिन्न होते हैं। वर्तमान अनुमानित मूल्य: थोक ₹15-40 प्रति किग्रा, खुदरा ₹25-60 प्रति किग्रा। पीक सीजन (दिसंबर-फरवरी) के दौरान मूल्य सबसे कम और ऑफ-सीजन (जून-अगस्त) के दौरान सबसे अधिक होते हैं। दैनिक दरों के लिए अपनी स्थानीय मंडी देखें। सर्वोत्तम मूल्यों के लिए, स्थानीय बिचौलियों के बजाय निकटतम विनियमित मंडी में थोक में बेचें।",
+    "answer_kn": "ಟೊಮೇಟೊ ಬೆಲೆಗಳು ಋತು ಮತ್ತು ಪ್ರದೇಶವನ್ನು ಅವಲಂಬಿಸಿ ಗಮನಾರ್ಹವಾಗಿ ಬದಲಾಗುತ್ತವೆ. ಪ್ರಸ್ತುತ ಅಂದಾಜು ಬೆಲೆಗಳು: ಸಗಟು ₹15-40 ಪ್ರತಿ ಕೆಜಿ, ಚಿಲ್ಲರೆ ₹25-60 ಪ್ರತಿ ಕೆಜಿ. ಪೀಕ್ ಋತುವಿನಲ್ಲಿ (ಡಿಸೆಂಬರ್-ಫೆಬ್ರವರಿ) ಬೆಲೆಗಳು ಅತ್ಯಂತ ಕಡಿಮೆ ಮತ್ತು ಆಫ್-ಋತುವಿನಲ್ಲಿ (ಜೂನ್-ಆಗಸ್ಟ್) ಅತ್ಯಧಿಕವಾಗಿರುತ್ತವೆ. ದೈನಂದಿನ ದರಗಳಿಗಾಗಿ ನಿಮ್ಮ ಸ್ಥಳೀಯ ಮಂಡಿಯನ್ನು ಪರಿಶೀಲಿಸಿ. ಉತ್ತಮ ಬೆಲೆಗಾಗಿ, ಸ್ಥಳೀಯ ಮಧ್ಯವರ್ತಿಗಳ ಬದಲು ಹತ್ತಿರದ ನಿಯಂತ್ರಿತ ಮಂಡಿಯಲ್ಲಿ ಸಗಟು ಮಾರಾಟ ಮಾಡಿ.",
+    "category": "mandi",
+    "tags": ["tomato", "price", "vegetable", "mandi"]
+  },
+  {
+    "id": "MND-005",
+    "question_en": "How does e-NAM benefit farmers?",
+    "question_hi": "e-NAM किसानों को कैसे लाभ पहुंचाता है?",
+    "question_kn": "e-NAM ರೈತರಿಗೆ ಹೇಗೆ ಪ್ರಯೋಜನವಾಗುತ್ತದೆ?",
+    "answer_en": "e-NAM (National Agriculture Market) is an online trading platform that: 1) Connects 1,000+ mandis across India. 2) Farmers can sell produce from their own mandi to buyers anywhere. 3) Transparent price discovery through online bidding. 4) Single license valid across all e-NAM mandis. 5) Direct payment to farmer's bank account. 6) Quality certification at the mandi level. Registration is free at your nearest e-NAM enabled mandi.",
+    "answer_hi": "e-NAM (राष्ट्रीय कृषि बाजार) एक ऑनलाइन ट्रेडिंग प्लेटफॉर्म है जो: 1) पूरे भारत में 1,000+ मंडियों को जोड़ता है। 2) किसान अपनी मंडी से कहीं भी खरीदारों को उपज बेच सकते हैं। 3) ऑनलाइन बोली के माध्यम से पारदर्शी मूल्य निर्धारण। 4) सभी e-NAM मंडियों में एकल लाइसेंस मान्य। 5) किसान के बैंक खाते में सीधा भुगतान। 6) मंडी स्तर पर गुणवत्ता प्रमाणन। आपकी नजदीकी e-NAM सक्षम मंडी में पंजीकरण मुफ्त है।",
+    "answer_kn": "e-NAM (ರಾಷ್ಟ್ರೀಯ ಕೃಷಿ ಮಾರುಕಟ್ಟೆ) ಒಂದು ಆನ್‌ಲೈನ್ ವ್ಯಾಪಾರ ವೇದಿಕೆಯಾಗಿದ್ದು: 1) ಭಾರತದಾದ್ಯಂತ 1,000+ ಮಂಡಿಗಳನ್ನು ಸಂಪರ್ಕಿಸುತ್ತದೆ. 2) ರೈತರು ತಮ್ಮ ಮಂಡಿಯಿಂದ ಎಲ್ಲಿಯಾದರೂ ಖರೀದಿದಾರರಿಗೆ ಉತ್ಪನ್ನ ಮಾರಾಟ ಮಾಡಬಹುದು. 3) ಆನ್‌ಲೈನ್ ಹರಾಜಿನ ಮೂಲಕ ಪಾರದರ್ಶಕ ಬೆಲೆ ನಿರ್ಧಾರ. 4) ಎಲ್ಲಾ e-NAM ಮಂಡಿಗಳಲ್ಲಿ ಏಕ ಪರವಾನಗಿ ಮಾನ್ಯ. 5) ರೈತರ ಬ್ಯಾಂಕ್ ಖಾತೆಗೆ ನೇರ ಪಾವತಿ. 6) ಮಂಡಿ ಮಟ್ಟದಲ್ಲಿ ಗುಣಮಟ್ಟ ಪ್ರಮಾಣೀಕರಣ. ನಿಮ್ಮ ಹತ್ತಿರದ e-NAM ಸಕ್ರಿಯ ಮಂಡಿಯಲ್ಲಿ ನೋಂದಣಿ ಉಚಿತ.",
+    "category": "mandi",
+    "tags": ["e-NAM", "online trading", "mandi", "farmer benefit"]
+  }
+]
