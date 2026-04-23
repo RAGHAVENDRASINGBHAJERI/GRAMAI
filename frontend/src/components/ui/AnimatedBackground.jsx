@@ -7,6 +7,7 @@ const AnimatedBackground = () => {
   return (
     <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none w-full h-full">
       <motion.div
+        initial={{ backgroundColor: theme === 'dark' ? '#151521' : '#F4F6F8' }}
         animate={{
           backgroundColor: theme === 'dark' ? '#151521' : '#F4F6F8',
         }}

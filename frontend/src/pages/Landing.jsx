@@ -274,8 +274,8 @@ const Landing = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: i * 0.1, type: "spring" }}
-                whileHover={{ x: 5, backgroundColor: "rgba(255,255,255,0.5)" }}
-                className="flex items-start gap-4 p-4 rounded-xl transition-colors cursor-pointer dark:hover:bg-gray-800/50"
+                whileHover={{ x: 5, scale: 1.02 }}
+                className="flex items-start gap-4 p-4 rounded-xl transition-colors cursor-pointer hover:bg-white/50 dark:hover:bg-gray-800/50"
               >
                 <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-5 h-5 text-primary" />
