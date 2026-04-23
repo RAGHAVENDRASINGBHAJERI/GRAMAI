@@ -117,7 +117,7 @@ const QuickQuestions = ({ onSelect, questions }) => (
 );
 
 const Chat = () => {
-  const { messages, isTyping, addMessage, setTyping, currentLanguage } = useChatStore();
+  const { messages, isTyping, addMessage, setTyping, currentLanguage, fetchHistory } = useChatStore();
   const { t, getSpeechLanguage } = useAppTranslation();
   const { isListening, transcript, startListening, stopListening, speak, isSpeaking, stopSpeaking } = useVoice();
   const { isOnline } = useOffline();
@@ -131,6 +131,14 @@ const Chat = () => {
     'What are dengue symptoms?',
     'What is MSP for wheat?',
   ];
+
+  useEffect(() => {
+    // Only fetch once on mount if we're online and have no messages
+    if (isOnline && messages.length === 0) {
+      fetchHistory();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });

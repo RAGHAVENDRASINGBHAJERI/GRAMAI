@@ -39,7 +39,7 @@ const querySchema = new mongoose.Schema({
   },
   source: {
     type: String,
-    enum: ['ai-engine', 'cache', 'offline-fallback'],
+    enum: ['ai-engine', 'groq-ai', 'cache', 'offline-fallback'],
     default: 'ai-engine',
   },
   timestamp: {

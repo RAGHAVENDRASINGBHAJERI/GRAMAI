@@ -61,16 +61,23 @@ export const useVoice = () => {
     voice = voices.find((v) => v.lang.startsWith(langPrefix));
     if (voice) return voice;
 
-    // 3. Try any Indian English voice as fallback
-    voice = voices.find((v) => v.lang.startsWith('en-IN'));
-    if (voice) return voice;
+    // 3. Look for voice name matches (e.g. "Google हिन्दी")
+    const langName = language.includes('hi') ? 'hindi' : language.includes('kn') ? 'kannada' : '';
+    if (langName) {
+      voice = voices.find((v) => v.name.toLowerCase().includes(langName));
+      if (voice) return voice;
+    }
 
-    // 4. Fallback to any English voice
-    voice = voices.find((v) => v.lang.startsWith('en'));
-    if (voice) return voice;
-
-    // 5. Last resort: first available voice
-    return voices[0];
+    // Do NOT fallback to English for non-English text to prevent broken pronunciation
+    if (langPrefix === 'en') {
+      voice = voices.find((v) => v.lang.startsWith('en-IN'));
+      if (voice) return voice;
+      voice = voices.find((v) => v.lang.startsWith('en'));
+      if (voice) return voice;
+      return voices[0];
+    }
+    
+    return null; // Allow browser to natively handle lang via string
   }, []);
 
   const startListening = useCallback((language = 'en-IN') => {
@@ -88,10 +95,11 @@ export const useVoice = () => {
     recognition.maxAlternatives = 1;
 
     recognition.onresult = (event) => {
-      const current = event.resultIndex;
-      const result = event.results[current];
-      const transcriptText = result[0].transcript;
-      setTranscript(transcriptText);
+      let fullTranscript = '';
+      for (let i = 0; i < event.results.length; i++) {
+        fullTranscript += event.results[i][0].transcript;
+      }
+      setTranscript(fullTranscript);
     };
 
     recognition.onerror = (event) => {
@@ -121,20 +129,22 @@ export const useVoice = () => {
       return;
     }
 
-    // Cancel any ongoing speech
     window.speechSynthesis.cancel();
     
-    const utterance = new SpeechSynthesisUtterance(text);
+    // Clean text: remove Markdown and Emojis
+    const cleanText = text
+      .replace(/[*#_`~]/g, '')
+      .replace(/[\u1F600-\u1F64F\u1F300-\u1F5FF\u1F680-\u1F6FF\u1F700-\u1F77F\u1F780-\u1F7FF\u1F800-\u1F8FF\u1F900-\u1F9FF\u1FA00-\u1FA6F\u1FA70-\u1FAFF\u2600-\u26FF\u2700-\u27BF]/g, '');
+
+    const utterance = new SpeechSynthesisUtterance(cleanText);
     utterance.lang = language;
-    utterance.rate = 0.9;
+    utterance.rate = 1.0; 
     utterance.pitch = 1;
     utterance.volume = 1;
 
-    // Try to find a matching voice for the language
     const voice = findVoice(language);
     if (voice) {
       utterance.voice = voice;
-      // Override lang with the voice's lang to ensure proper pronunciation
       utterance.lang = voice.lang;
     }
 

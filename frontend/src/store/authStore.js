@@ -61,6 +61,9 @@ export const useAuthStore = create(
           isAuthenticated: false,
           error: null,
         });
+        import('./chatStore').then(({ useChatStore }) => {
+          useChatStore.getState().clearMessages();
+        });
       },
 
       updateProfile: async (profileData) => {

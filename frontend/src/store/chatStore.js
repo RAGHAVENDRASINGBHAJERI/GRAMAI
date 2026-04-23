@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { chatService } from '../services/chatService';
 
 export const useChatStore = create(
   persist(
@@ -22,6 +23,28 @@ export const useChatStore = create(
       setCategory: (category) => set({ currentCategory: category }),
 
       clearMessages: () => set({ messages: [] }),
+
+      fetchHistory: async () => {
+        try {
+          const response = await chatService.getHistory({ limit: 50 });
+          if (response?.data?.data?.queries) {
+            const queries = response.data.data.queries.reverse();
+            const newMessages = [];
+            queries.forEach((q) => {
+              newMessages.push({ role: 'user', content: q.question, id: q._id + '_u' });
+              newMessages.push({
+                role: 'assistant',
+                content: q.response,
+                metadata: { source: q.source, confidence: q.confidence, category: q.category },
+                id: q._id + '_a',
+              });
+            });
+            set({ messages: newMessages });
+          }
+        } catch (error) {
+          console.error('Failed to fetch chat history', error);
+        }
+      },
 
       loadLocalMessages: () => {
         const stored = localStorage.getItem('gramaai-chat-messages');

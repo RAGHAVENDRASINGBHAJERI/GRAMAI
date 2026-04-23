@@ -19,7 +19,11 @@ api.interceptors.request.use(
       try {
         const { state } = JSON.parse(stored);
         if (state?.accessToken) {
-          config.headers.Authorization = `Bearer ${state.accessToken}`;
+          if (config.headers && typeof config.headers.set === 'function') {
+            config.headers.set('Authorization', `Bearer ${state.accessToken}`);
+          } else if (config.headers) {
+            config.headers.Authorization = `Bearer ${state.accessToken}`;
+          }
         }
       } catch {
         // ignore
@@ -36,7 +40,13 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
-    if (error.response?.status === 401 && !originalRequest._retry) {
+    // Do not retry if the error is from login or register
+    if (
+      error.response?.status === 401 &&
+      !originalRequest._retry &&
+      !originalRequest.url.includes('/auth/login') &&
+      !originalRequest.url.includes('/auth/register')
+    ) {
       originalRequest._retry = true;
 
       try {
@@ -56,7 +66,12 @@ api.interceptors.response.use(
           localStorage.setItem('gramaai-auth', JSON.stringify(parsed));
         }
 
-        originalRequest.headers.Authorization = `Bearer ${accessToken}`;
+        if (originalRequest.headers && typeof originalRequest.headers.set === 'function') {
+          originalRequest.headers.set('Authorization', `Bearer ${accessToken}`);
+        } else if (originalRequest.headers) {
+          originalRequest.headers.Authorization = `Bearer ${accessToken}`;
+        }
+        
         return api(originalRequest);
       } catch (refreshError) {
         // Clear auth state on refresh failure

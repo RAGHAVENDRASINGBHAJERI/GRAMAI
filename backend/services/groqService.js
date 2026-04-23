@@ -212,4 +212,68 @@ const getRelatedQuestions = (category, language) => {
   return questions[language]?.[category] || questions.en.general;
 };
 
-module.exports = { queryGroq };
+/**
+ * Generate full page content based on category and location
+ * @param {string} category 
+ * @param {string} location 
+ * @param {string} language 
+ */
+const generateLocationContent = async (category, location, language = 'en') => {
+  try {
+    const locString = location || 'India';
+    const categoryPrompts = {
+      en: {
+        agriculture: `Provide the latest highly-accurate agricultural insights, best practices, crop cycles, and weather-related farming advice for ${locString}.`,
+        schemes: `Detail the most relevant and active Indian government agricultural/rural schemes available for residents of ${locString}.`,
+        health: `Provide essential rural healthcare guidance, local disease prevention mechanisms, and general wellness advice tailored for ${locString}, India. Add a disclaimer to consult local doctors.`,
+        mandi: `Provide estimated current Mandi prices, Minimum Support Price (MSP) info, and market trends for major crops grown around ${locString}. Add a disclaimer that prices fluctuate.`,
+      },
+      hi: {
+        agriculture: `${locString} के लिए नवीनतम कृषि तकनीकों, फसल चक्रों और मौसम से संबंधित कृषि सलाह प्रदान करें।`,
+        schemes: `${locString} के निवासियों के लिए उपलब्ध सबसे प्रासंगिक और सक्रिय भारतीय सरकारी कृषि/ग्रामीण योजनाओं का विवरण दें।`,
+        health: `${locString}, भारत के लिए आवश्यक ग्रामीण स्वास्थ्य देखभाल मार्गदर्शन और रोग निवारण सलाह प्रदान करें। डॉक्टरों से परामर्श करने का डिस्क्लेमर जोड़ें।`,
+        mandi: `${locString} के आसपास उगाई जाने वाली प्रमुख फसलों के लिए अनुमानित मण्डी भाव और न्यूनतम समर्थन मूल्य (MSP) की जानकारी दें।`,
+      },
+      kn: {
+        agriculture: `${locString} ಗೆ ಇತ್ತೀಚಿನ ಕೃಷಿ ತಂತ್ರಗಳು, ಬೆಳೆ ಚಕ್ರಗಳು ಮತ್ತು ಹವಾಮಾನ ಆಧಾರಿತ ಕೃಷಿ ಸಲಹೆಗಳನ್ನು ಒದಗಿಸಿ.`,
+        schemes: `${locString} ನಿವಾಸಿಗಳಿಗೆ ಲಭ್ಯವಿರುವ ಪ್ರಮುಖ ಭಾರತೀಯ ಸರ್ಕಾರಿ ಕೃಷಿ/ಗ್ರಾಮೀಣ ಯೋಜನೆಗಳನ್ನು ವಿವರಿಸಿ.`,
+        health: `${locString}, ಭಾರತಕ್ಕೆ ಅಗತ್ಯವಾದ ಗ್ರಾಮೀಣ ಆರೋಗ್ಯ ಮಾರ್ಗದರ್ಶನ ಮತ್ತು ರೋಗ ತಡೆಗಟ್ಟುವಿಕೆ ಸಲಹೆಗಳನ್ನು ನೀಡಿ. ವೈದ್ಯರನ್ನು ಸಂಪರ್ಕಿಸಲು ಸೂಚನೆ ಸೇರಿಸಿ.`,
+        mandi: `${locString} ಸುತ್ತಮುತ್ತಲಿನ ಪ್ರಮುಖ ಬೆಳೆಗಳಿಗೆ ಅಂದಾಜು ಮಂಡಿ ಬೆಲೆಗಳು ಮತ್ತು ಕನಿಷ್ಠ ಬೆಂಬಲ ಬೆಲೆ (MSP) ಮಾಹಿತಿ ನೀಡಿ.`,
+      }
+    };
+
+    const taskPrompt = categoryPrompts[language]?.[category] || categoryPrompts.en[category] || categoryPrompts.en.agriculture;
+    const boundary = BOUNDARY_GUARDS[language] || BOUNDARY_GUARDS.en;
+
+    const completion = await groq.chat.completions.create({
+      messages: [
+        {
+          role: 'system',
+          content: `You are GramaAI, a highly accurate automated assistant for Indian farmers. ${boundary}\n\nFormat your ENTIRE response beautifully using Markdown. You MUST structure your response utilizing visually appealing Markdown Tables for data (e.g. Crop Cycles, Prices, Schemes). Liberally use relevant Emojis 🌾🚜💧 for sections to make it engaging. Use # Headers, ## Subheaders, bullet points, and bold text to create a premium UI experience. Be comprehensive but concise. Ensure utmost accuracy regarding location-specific facts.`
+        },
+        {
+          role: 'user',
+          content: taskPrompt,
+        },
+      ],
+      model: 'llama-3.3-70b-versatile',
+      temperature: 0.5, // Lower temperature for higher accuracy
+      max_tokens: 1500,
+      top_p: 0.9,
+      stream: false,
+    });
+
+    let markdownContent = completion.choices[0]?.message?.content || '';
+
+    if (!markdownContent) {
+      throw new Error('Empty response from Groq');
+    }
+
+    return markdownContent;
+  } catch (error) {
+    console.error('Groq Content Generation API error:', error.message);
+    throw error;
+  }
+};
+
+module.exports = { queryGroq, generateLocationContent };
