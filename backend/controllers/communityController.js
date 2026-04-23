@@ -51,7 +51,14 @@ exports.createPost = async (req, res, next) => {
     
     let imageId = null;
     if (req.file) {
-      imageId = req.file.id;
+      imageId = await new Promise((resolve, reject) => {
+        const uploadStream = gfsBucket.openUploadStream(`${Date.now()}-community-${req.file.originalname}`, {
+          contentType: req.file.mimetype
+        });
+        uploadStream.end(req.file.buffer);
+        uploadStream.on('finish', () => resolve(uploadStream.id));
+        uploadStream.on('error', reject);
+      });
     }
 
     const post = await Post.create({

@@ -81,7 +81,7 @@ const queryGroq = async (question, language = 'en', category = 'general') => {
         },
       ],
       model: 'llama-3.3-70b-versatile',
-      temperature: 0.7,
+      temperature: 0.1, // Lower temperature for strict accuracy
       top_p: 0.9,
       stream: false,
     });
@@ -247,7 +247,7 @@ const generateLocationContent = async (category, location, language = 'en') => {
       messages: [
         {
           role: 'system',
-          content: `You are GramaAI, a highly accurate automated assistant for Indian farmers. ${boundary}\n\nFormat your ENTIRE response beautifully using Markdown. You MUST structure your response utilizing visually appealing Markdown Tables for data (e.g. Crop Cycles, Prices, Schemes). IMPORTANT: Ensure Markdown tables have proper spacing and newlines so they render correctly. Liberally use relevant Emojis 🌾🚜💧 for sections to make it engaging. Use # Headers, ## Subheaders, bullet points, and bold text. For Mandi prices and MSP, use the most accurate recent agricultural season data you have; do not invent wildly inaccurate daily figures, but provide realistic baselines with a clear disclaimer.`
+          content: `You are GramaAI, a highly accurate automated assistant for Indian farmers. ${boundary}\n\nCRITICAL RULE: You must provide ONLY strictly factual and highly accurate information. NEVER hallucinate facts, numbers, schemes, or URLs. If you do not know the exact data, state that clearly instead of guessing.\n\nFormat your ENTIRE response beautifully using Markdown. You MUST structure your response utilizing visually appealing Markdown Tables for data (e.g. Crop Cycles, Prices, Schemes). IMPORTANT: Ensure Markdown tables have proper spacing and newlines so they render correctly. Liberally use relevant Emojis 🌾🚜💧 for sections to make it engaging. Use # Headers, ## Subheaders, bullet points, and bold text. For Mandi prices and MSP, use the most accurate recent agricultural season data you have; do not invent wildly inaccurate daily figures, but provide realistic baselines with a clear disclaimer.`
         },
         {
           role: 'user',
@@ -255,7 +255,7 @@ const generateLocationContent = async (category, location, language = 'en') => {
         },
       ],
       model: 'llama-3.3-70b-versatile',
-      temperature: 0.5, // Lower temperature for higher accuracy
+      temperature: 0.1, // Lower temperature for strict accuracy
       top_p: 0.9,
       stream: false,
     });

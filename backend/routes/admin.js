@@ -13,6 +13,8 @@ router.get('/stats', adminController.getStats);
 
 // Users
 router.get('/users', adminController.getUsers);
+router.put('/users/:id/role', adminController.updateUserRole);
+router.delete('/users/:id', adminController.deleteUser);
 
 // Queries
 router.get('/queries', adminController.getQueries);
@@ -22,5 +24,10 @@ router.get('/schemes', adminController.getSchemes);
 router.post('/schemes', validateBody(schemas.scheme), adminController.createScheme);
 router.put('/schemes/:id', validateBody(schemas.scheme), adminController.updateScheme);
 router.delete('/schemes/:id', adminController.deleteScheme);
+
+// Posts (Marketplace)
+router.get('/posts', adminController.getAdminPosts);
+router.patch('/posts/:id/status', adminController.updateAdminPostStatus);
+router.delete('/posts/:id', adminController.deleteAdminPost);
 
 module.exports = router;

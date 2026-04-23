@@ -79,12 +79,13 @@ const CreatePostModal = ({ isOpen, onClose, onSubmit }) => {
             className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
             onClick={onClose}
           />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg bg-surface rounded-2xl shadow-xl z-50 overflow-hidden flex flex-col max-h-[90vh]"
-          >
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="w-full max-w-lg bg-surface rounded-2xl shadow-xl overflow-hidden flex flex-col max-h-full sm:max-h-[90vh] pointer-events-auto"
+            >
             <div className="flex items-center justify-between p-4 border-b border-gray-100 bg-white">
               <h2 className="text-lg font-semibold text-text-primary">Create Marketplace Listing</h2>
               <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full transition-colors">
@@ -92,7 +93,7 @@ const CreatePostModal = ({ isOpen, onClose, onSubmit }) => {
               </button>
             </div>
 
-            <div className="p-4 overflow-y-auto">
+            <div className="p-4 overflow-y-auto flex-1">
               <form id="post-form" onSubmit={handleSubmit} className="space-y-4">
                 
                 <div className="flex gap-2 p-1 bg-gray-100 rounded-xl">
@@ -112,7 +113,7 @@ const CreatePostModal = ({ isOpen, onClose, onSubmit }) => {
                   ))}
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-text-secondary mb-1">Crop/Item Name</label>
                     <input required name="cropType" value={formData.cropType} onChange={handleInputChange} className="w-full input-field" placeholder="e.g. Wheat, Tractor" />
@@ -123,7 +124,7 @@ const CreatePostModal = ({ isOpen, onClose, onSubmit }) => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-text-secondary mb-1">Price (₹)</label>
                     <input required type="number" name="price" value={formData.price} onChange={handleInputChange} className="w-full input-field" placeholder="Enter amount" />
@@ -174,6 +175,7 @@ const CreatePostModal = ({ isOpen, onClose, onSubmit }) => {
               </button>
             </div>
           </motion.div>
+          </div>
         </>
       )}
     </AnimatePresence>

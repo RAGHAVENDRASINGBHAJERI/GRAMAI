@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { Thermometer, Droplets, Wind, CloudRain, AlertCircle, Loader2 } from 'lucide-react';
 import { useWeather } from '../../hooks/useWeather';
 
-const WeatherWidget = () => {
-  const { weather, isLoading, error } = useWeather();
+const WeatherWidget = ({ locationName }) => {
+  const { weather, isLoading, error } = useWeather(locationName);
 
   if (isLoading) {
     return (

@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const Query = require('../models/Query');
 const Scheme = require('../models/Scheme');
+const Post = require('../models/Post');
 const { success, created, badRequest, notFound } = require('../utils/responseHelper');
 
 /**
@@ -79,6 +80,50 @@ const getUsers = async (req, res, next) => {
       total,
       pages: Math.ceil(total / parseInt(limit)),
     });
+  } catch (err) {
+    next(err);
+  }
+};
+
+/**
+ * Update user role
+ */
+const updateUserRole = async (req, res, next) => {
+  try {
+    const { role } = req.body;
+    if (!['user', 'admin'].includes(role)) {
+      return badRequest(res, 'Invalid role specified');
+    }
+
+    const user = await User.findByIdAndUpdate(
+      req.params.id,
+      { role },
+      { new: true, runValidators: true }
+    ).select('-password');
+
+    if (!user) {
+      return notFound(res, 'User not found');
+    }
+
+    return success(res, { user }, 'User role updated successfully');
+  } catch (err) {
+    next(err);
+  }
+};
+
+/**
+ * Delete a user
+ */
+const deleteUser = async (req, res, next) => {
+  try {
+    const user = await User.findByIdAndDelete(req.params.id);
+    if (!user) {
+      return notFound(res, 'User not found');
+    }
+    // Optionally delete associated posts and queries here
+    await Post.deleteMany({ userId: req.params.id });
+    
+    return success(res, null, 'User deleted successfully');
   } catch (err) {
     next(err);
   }
@@ -203,12 +248,91 @@ const getSchemes = async (req, res, next) => {
   }
 };
 
+/**
+ * Get all posts for admin (no status filter)
+ */
+const getAdminPosts = async (req, res, next) => {
+  try {
+    const { page = 1, limit = 20, status, search } = req.query;
+    const query = {};
+
+    if (status) query.status = status;
+    if (search) {
+      query.$or = [
+        { cropType: { $regex: search, $options: 'i' } },
+        { location: { $regex: search, $options: 'i' } },
+      ];
+    }
+
+    const skip = (parseInt(page) - 1) * parseInt(limit);
+    const total = await Post.countDocuments(query);
+
+    const posts = await Post.find(query)
+      .populate('userId', 'name email phone')
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(parseInt(limit));
+
+    return success(res, { posts }, 'Admin posts retrieved', 200, {
+      page: parseInt(page),
+      limit: parseInt(limit),
+      total,
+      pages: Math.ceil(total / parseInt(limit)),
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+/**
+ * Update post status (Admin)
+ */
+const updateAdminPostStatus = async (req, res, next) => {
+  try {
+    const { status } = req.body; // 'ACTIVE', 'SOLD', 'CLOSED'
+    const post = await Post.findByIdAndUpdate(
+      req.params.id,
+      { status },
+      { new: true, runValidators: true }
+    );
+
+    if (!post) {
+      return notFound(res, 'Post not found');
+    }
+
+    return success(res, { post }, `Post marked as ${status}`);
+  } catch (err) {
+    next(err);
+  }
+};
+
+/**
+ * Delete a post (Admin)
+ */
+const deleteAdminPost = async (req, res, next) => {
+  try {
+    const post = await Post.findByIdAndDelete(req.params.id);
+    if (!post) {
+      return notFound(res, 'Post not found');
+    }
+    // Note: GridFS image orphans could be cleaned up here via gfsBucket
+    return success(res, null, 'Post deleted successfully');
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   getStats,
   getUsers,
+  updateUserRole,
+  deleteUser,
   getQueries,
   createScheme,
   updateScheme,
   deleteScheme,
   getSchemes,
+  getAdminPosts,
+  updateAdminPostStatus,
+  deleteAdminPost,
 };
