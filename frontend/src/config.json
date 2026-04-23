@@ -6,8 +6,8 @@
       "wsUrl": "ws://localhost:5000"
     },
     "production": {
-      "apiUrl": "https://gramaai-backend.onrender.com/api",
-      "wsUrl": "wss://gramaai-backend.onrender.com"
+      "apiUrl": "https://gramai-d16p.onrender.com/api",
+      "wsUrl": "wss://gramai-d16p.onrender.com"
     }
   }
 }
