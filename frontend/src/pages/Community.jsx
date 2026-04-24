@@ -24,12 +24,17 @@ const PostCard = ({ post, t, currentUser }) => {
   const showImage = imageUrl && !imageError;
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="card overflow-hidden p-0 flex flex-col h-full bg-surface shadow-sm border border-gray-100"
-    >
-      {/* Image Block */}
+    <div style={{ perspective: 1200 }}>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        whileHover={{ y: -10, rotateX: 6, rotateY: 6, scale: 1.02 }}
+        whileTap={{ scale: 0.99, rotateX: 0, rotateY: 0 }}
+        transition={{ type: 'spring', stiffness: 220, damping: 18 }}
+        className="card overflow-hidden p-0 flex flex-col h-full bg-surface shadow-sm border border-gray-100"
+        style={{ transformStyle: 'preserve-3d' }}
+      >
+        {/* Image Block */}
       <div className="relative h-48 bg-gray-50 flex items-center justify-center overflow-hidden border-b border-gray-100">
         {showImage ? (
           <img 
@@ -135,6 +140,7 @@ const PostCard = ({ post, t, currentUser }) => {
         </div>
       </div>
     </motion.div>
+  </div>
   );
 };
 

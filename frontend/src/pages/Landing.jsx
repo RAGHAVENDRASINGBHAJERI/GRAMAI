@@ -333,8 +333,11 @@ const Landing = () => {
             <Sprout className="w-6 h-6 text-primary-300" />
             <span className="font-bold text-lg">{t('app.name')}</span>
           </div>
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-400 text-sm mb-2">
             Empowering rural India with AI-powered assistance in your language.
+          </p>
+          <p className="text-gray-400 text-sm">
+            © {new Date().getFullYear()} {t('app.name')}. Made with ❤️ by TechTwins🧑‍🤝‍🧑.
           </p>
         </div>
       </footer>
