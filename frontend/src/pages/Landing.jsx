@@ -78,8 +78,8 @@ const StatCard = ({ value, label }) => (
     viewport={{ once: true }}
     className="text-center"
   >
-    <div className="text-3xl font-bold text-primary mb-1">{value}</div>
-    <div className="text-sm text-text-secondary">{label}</div>
+    <div className="text-3xl font-bold text-white mb-1">{value}</div>
+    <div className="text-sm text-white/80">{label}</div>
   </motion.div>
 );
 
@@ -101,16 +101,10 @@ const Landing = () => {
       delay: 0.1,
     },
     {
-      icon: Wifi,
-      title: 'Works Offline',
-      description: 'No internet? No problem. Our AI works offline with cached data for uninterrupted assistance.',
-      delay: 0.2,
-    },
-    {
       icon: Globe,
       title: 'Multilingual Support',
       description: 'Available in English, Hindi, and Kannada. Ask questions and get responses in your preferred language.',
-      delay: 0.3,
+      delay: 0.2,
     },
   ];
 
@@ -174,8 +168,13 @@ const Landing = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 py-20 md:py-32 relative overflow-hidden">
-        <div className="text-center max-w-3xl mx-auto relative z-10">
+      <section
+        className="relative overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('https://png.pngtree.com/background/20210710/original/pngtree-hand-painted-background-design-of-the-first-chinese-farmers-harvest-festival-picture-image_978936.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-black/25" />
+        <div className="max-w-7xl mx-auto px-4 py-20 md:py-32 relative z-10">
+          <div className="text-center max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -225,6 +224,7 @@ const Landing = () => {
             </div>
           </motion.div>
         </div>
+      </div>
       </section>
 
       {/* Features Section */}
@@ -244,12 +244,13 @@ const Landing = () => {
               Powerful features designed for rural India
             </p>
           </motion.div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center">
             {features.map((feature, index) => (
               <motion.div 
                 key={index} 
                 whileHover={{ y: -5, scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 300 }}
+                className="w-full max-w-xl"
               >
                 <FeatureCard {...feature} />
               </motion.div>
