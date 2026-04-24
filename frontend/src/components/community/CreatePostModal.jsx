@@ -14,28 +14,32 @@ const CreatePostModal = ({ isOpen, onClose, onSubmit }) => {
   const [imageFile, setImageFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formError, setFormError] = useState('');
   
   const fileInputRef = useRef(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    if (formError) setFormError('');
   };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       if (file.size > 10 * 1024 * 1024) {
-        alert("Image must be smaller than 10MB");
+        setFormError('Image must be smaller than 10MB');
         return;
       }
       setImageFile(file);
       setPreviewUrl(URL.createObjectURL(file));
+      if (formError) setFormError('');
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setFormError('');
     setIsSubmitting(true);
     
     try {
@@ -62,7 +66,7 @@ const CreatePostModal = ({ isOpen, onClose, onSubmit }) => {
       setPreviewUrl(null);
       onClose();
     } catch (error) {
-      alert(error.message);
+      setFormError(error.message || 'Failed to upload listing.');
     } finally {
       setIsSubmitting(false);
     }
@@ -161,6 +165,12 @@ const CreatePostModal = ({ isOpen, onClose, onSubmit }) => {
                     </div>
                   )}
                 </div>
+
+                {formError && (
+                  <div className="rounded-xl border border-red-100 bg-red-50 px-4 py-3 text-sm text-red-700">
+                    {formError}
+                  </div>
+                )}
               </form>
             </div>
 

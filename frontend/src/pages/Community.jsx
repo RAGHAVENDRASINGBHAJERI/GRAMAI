@@ -12,26 +12,43 @@ const API_BASE_URL = isProd
   ? configData.environments.production.apiUrl 
   : configData.environments.development.apiUrl;
 
-const PostCard = ({ post, t }) => {
+const PostCard = ({ post, t, currentUser }) => {
   const isSell = post.transactionType === 'SELL';
-  const imageUrl = post.imageId ? `${API_BASE_URL}/community/images/${post.imageId}` : null;
+  const [imageError, setImageError] = useState(false);
+  
+  // Cache busting to ensure the browser fetches the latest image even if a previous request failed
+  const cacheBuster = post.updatedAt ? new Date(post.updatedAt).getTime() : Date.now();
+  const imageUrl = post.imageId ? `${API_BASE_URL}/community/images/${post.imageId}?t=${cacheBuster}` : null;
+  const isAdmin = currentUser?.role === 'admin';
+  const seller = post.userId || {};
+  const showImage = imageUrl && !imageError;
 
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="card overflow-hidden p-0 flex flex-col"
+      className="card overflow-hidden p-0 flex flex-col h-full bg-surface shadow-sm border border-gray-100"
     >
       {/* Image Block */}
-      <div className="relative h-48 bg-gray-100 border-b border-gray-100 flex items-center justify-center overflow-hidden">
-        {imageUrl ? (
-          <img src={imageUrl} alt={post.cropType} className="w-full h-full object-cover" loading="lazy" />
-        ) : (
-          <div className="text-gray-400 flex flex-col items-center justify-center">
-            <ImageIcon className="w-8 h-8 mb-2 opacity-50" />
+      <div className="relative h-48 bg-gray-50 flex items-center justify-center overflow-hidden border-b border-gray-100">
+        {showImage ? (
+          <img 
+            src={imageUrl} 
+            alt={post.cropType} 
+            className="w-full h-full object-cover transition-transform hover:scale-105 duration-300" 
+            loading="lazy"
+            onError={() => setImageError(true)}
+          />
+        ) : null}
+        
+        {/* Fallback displayed if no image or image fails to load */}
+        {!showImage && (
+          <div className="text-gray-400 flex-col items-center justify-center w-full h-full bg-gray-50 flex">
+            <ImageIcon className="w-10 h-10 mb-2 opacity-40 text-primary" />
             <span className="text-xs uppercase font-medium tracking-wider">{t('marketplace.noPhoto')}</span>
           </div>
         )}
+        
         <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white shadow-sm ${isSell ? 'bg-green-500' : 'bg-blue-500'}`}>
           {isSell ? t('marketplace.selling') : t('marketplace.buying')}
         </div>
@@ -44,7 +61,7 @@ const PostCard = ({ post, t }) => {
           <span className="text-lg font-black text-primary">₹{post.price}</span>
         </div>
         
-        <p className="text-sm text-text-secondary mb-4 line-clamp-2 flex-1">
+        <p className="text-sm text-text-secondary mb-4 line-clamp-2 min-h-[40px]">
           {post.description}
         </p>
 
@@ -55,28 +72,67 @@ const PostCard = ({ post, t }) => {
           </div>
           <div className="flex items-center gap-2 text-xs text-text-secondary bg-gray-50 px-2 py-1.5 rounded-md">
             <MapPin className="w-3.5 h-3.5" />
-            {post.location}
+            {post.location || 'No Location'}
           </div>
-          <div className="flex items-center gap-2 text-xs text-text-secondary bg-gray-50 px-2 py-1.5 rounded-md">
-            <Tag className="w-3.5 h-3.5" />
-            <span className="font-medium text-text-primary">{t('marketplace.seller')}</span> {post.userId?.name || 'Unknown'}
+          
+          <div className="flex flex-col gap-1 text-xs text-text-secondary bg-gray-50 p-2 rounded-md border border-gray-100">
+            <div className="flex items-center gap-2">
+              <Tag className="w-3.5 h-3.5" />
+              <span className="font-medium text-text-primary">{t('marketplace.seller')}:</span> 
+              {seller.name || 'Unknown User'}
+            </div>
+            {seller.phone && <div className="ml-5 text-gray-500">Phone: {seller.phone}</div>}
+            {seller.email && <div className="ml-5 text-gray-500">Email: {seller.email}</div>}
           </div>
         </div>
 
-        <button 
-          onClick={() => {
-            if (post.userId?.phone) {
-              window.location.href = `tel:${post.userId.phone}`;
-            } else {
-              alert("Contact details are not available for this user.");
-            }
-          }}
-          className={`w-full mt-4 py-2.5 rounded-xl font-medium text-sm transition-colors ${
-            isSell ? 'bg-green-50 text-green-700 hover:bg-green-100' : 'bg-blue-50 text-blue-700 hover:bg-blue-100'
-          }`}
-        >
-          {isSell ? t('marketplace.contactSeller') : t('marketplace.contactBuyer')}
-        </button>
+        <div className="flex gap-2 mt-4 pt-4 border-t border-gray-50">
+          <button 
+            onClick={() => {
+              if (seller.phone) {
+                const userName = currentUser?.name || 'A user';
+                const userEmail = currentUser?.email || 'N/A';
+                const userPhone = currentUser?.phone || 'N/A';
+                const msg = `Hello ${seller.name || ''}, I'm interested in your ${post.cropType} marketplace listing on GramaAI. My details are:\nName: ${userName}\nEmail: ${userEmail}\nMobile: ${userPhone}`;
+                const uriMsg = encodeURIComponent(msg);
+                
+                window.open(`https://wa.me/${seller.phone.replace(/\D/g, '')}?text=${uriMsg}`, '_blank');
+              } else if (seller.email) {
+                window.location.href = `mailto:${seller.email}?subject=GramaAI Marketplace: ${post.cropType}`;
+              } else {
+                alert("Contact details (phone or email) are not available for this seller.");
+              }
+            }}
+            className={`flex-1 py-2.5 rounded-xl font-medium text-sm transition-colors shadow-sm ${
+              isSell ? 'bg-green-50 text-green-700 hover:bg-green-100 border border-green-200' : 'bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200'
+            }`}
+          >
+            {isSell ? t('marketplace.contactSeller') : t('marketplace.contactBuyer')}
+          </button>
+          
+          {(isAdmin || currentUser?._id === seller._id) && (
+            <button 
+              onClick={async () => {
+                if (window.confirm('Are you sure you want to delete this listing?')) {
+                  try {
+                    const token = useAuthStore.getState().accessToken;
+                    await fetch(`${API_BASE_URL}/community/posts/${post._id}`, {
+                      method: 'DELETE',
+                      headers: { Authorization: `Bearer ${token}` }
+                    });
+                    useCommunityStore.getState().fetchPosts(1);
+                  } catch(e) {
+                    alert('Failed to delete post');
+                  }
+                }
+              }}
+              className="px-4 py-2.5 rounded-xl font-medium text-sm transition-colors shadow-sm bg-red-50 text-red-700 hover:bg-red-100 border border-red-200"
+              title="Delete Post"
+            >
+              Delete
+            </button>
+          )}
+        </div>
       </div>
     </motion.div>
   );
@@ -85,7 +141,7 @@ const PostCard = ({ post, t }) => {
 const Community = () => {
   const { t } = useAppTranslation();
   const { posts, isLoading, error, fetchPosts, createPost, filterTransactionType, setFilters } = useCommunityStore();
-  const { isAuthenticated } = useAuthStore();
+  const { isAuthenticated, user } = useAuthStore();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -151,7 +207,7 @@ const Community = () => {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {posts.map(post => (
-            <PostCard key={post._id} post={post} t={t} />
+            <PostCard key={post._id} post={post} t={t} currentUser={user} />
           ))}
         </div>
       )}

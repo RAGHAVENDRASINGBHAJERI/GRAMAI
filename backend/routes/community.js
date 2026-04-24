@@ -1,6 +1,5 @@
 const express = require('express');
 const multer = require('multer');
-const { GridFsStorage } = require('multer-gridfs-storage');
 const { authenticate: protect } = require('../middleware/authMiddleware');
 const communityController = require('../controllers/communityController');
 const env = require('../config/env');
@@ -13,7 +12,7 @@ const upload = multer({
   fileFilter: (req, file, cb) => {
     const match = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp'];
     if (match.indexOf(file.mimetype) === -1) {
-      return cb(new Error('Only images are allowed'), false);
+      return cb(new Error('Only images are allowed'));
     }
     cb(null, true);
   }
@@ -28,5 +27,8 @@ router.post('/posts', protect, upload.single('image'), communityController.creat
 
 // Update Status
 router.patch('/posts/:id/status', protect, communityController.updatePostStatus);
+
+// Delete Post
+router.delete('/posts/:id', protect, communityController.deletePost);
 
 module.exports = router;

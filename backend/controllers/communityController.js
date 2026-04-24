@@ -1,15 +1,8 @@
 const mongoose = require('mongoose');
 const Post = require('../models/Post');
+const CommunityImage = require('../models/CommunityImage');
 const { success, badRequest, notFound } = require('../utils/responseHelper');
 const env = require('../config/env');
-
-// Init GridFS bucket
-let gfsBucket;
-mongoose.connection.once('open', () => {
-  gfsBucket = new mongoose.mongo.GridFSBucket(mongoose.connection.db, {
-    bucketName: 'postImages'
-  });
-});
 
 /**
  * Get all posts
@@ -26,7 +19,7 @@ exports.getPosts = async (req, res, next) => {
     const total = await Post.countDocuments(query);
     
     const posts = await Post.find(query)
-      .populate('userId', 'name phone location')
+      .populate('userId', 'name phone email location')
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(parseInt(limit));
@@ -51,14 +44,12 @@ exports.createPost = async (req, res, next) => {
     
     let imageId = null;
     if (req.file) {
-      imageId = await new Promise((resolve, reject) => {
-        const uploadStream = gfsBucket.openUploadStream(`${Date.now()}-community-${req.file.originalname}`, {
-          contentType: req.file.mimetype
-        });
-        uploadStream.end(req.file.buffer);
-        uploadStream.on('finish', () => resolve(uploadStream.id));
-        uploadStream.on('error', reject);
+      const imageDoc = await CommunityImage.create({
+        data: req.file.buffer,
+        contentType: req.file.mimetype,
+        originalName: req.file.originalname
       });
+      imageId = imageDoc._id;
     }
 
     const post = await Post.create({
@@ -87,23 +78,18 @@ exports.getImage = async (req, res, next) => {
     const imageId = new mongoose.Types.ObjectId(req.params.id);
     
     // Check if file exists
-    const files = await gfsBucket.find({ _id: imageId }).toArray();
+    const image = await CommunityImage.findById(imageId);
     
-    if (!files || files.length === 0) {
+    if (!image) {
       return notFound(res, 'Image not found');
     }
 
-    const file = files[0];
-    
     // Set appropriate headers
-    if (file.contentType) {
-      res.set('Content-Type', file.contentType);
-    }
+    res.set('Content-Type', image.contentType || 'image/jpeg');
     res.set('Cache-Control', 'public, max-age=31536000');
     
-    // Stream data
-    const readStream = gfsBucket.openDownloadStream(imageId);
-    readStream.pipe(res);
+    // Send data
+    res.send(Buffer.from(image.data));
   } catch (err) {
     next(err);
   }
@@ -126,6 +112,37 @@ exports.updatePostStatus = async (req, res, next) => {
     }
 
     return success(res, { post }, `Post marked as ${status}`);
+  } catch (err) {
+    next(err);
+  }
+};
+
+/**
+ * Delete a post (Admin or Owner)
+ */
+exports.deletePost = async (req, res, next) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) {
+      return notFound(res, 'Post not found');
+    }
+
+    // Allow if owner or admin
+    if (post.userId.toString() !== req.user.id && req.user.role !== 'admin') {
+      return badRequest(res, 'Unauthorized to delete this post', 403);
+    }
+
+    // Delete image from DB if it exists
+    if (post.imageId) {
+      try {
+        await CommunityImage.findByIdAndDelete(post.imageId);
+      } catch (e) {
+        console.error('Error deleting image:', e.message);
+      }
+    }
+
+    await Post.findByIdAndDelete(req.params.id);
+    return success(res, null, 'Post deleted successfully');
   } catch (err) {
     next(err);
   }

@@ -8,9 +8,6 @@ const API_BASE_URL = isProd
 
 const api = axios.create({
   baseURL: API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
   withCredentials: true,
   timeout: 15000,
 });
@@ -33,6 +30,13 @@ api.interceptors.request.use(
         // ignore
       }
     }
+
+    if (config.data instanceof FormData && config.headers) {
+      // Let the browser set the correct multipart boundary header.
+      delete config.headers['Content-Type'];
+      delete config.headers['content-type'];
+    }
+
     return config;
   },
   (error) => Promise.reject(error)

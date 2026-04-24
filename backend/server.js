@@ -21,8 +21,26 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
-// Security middleware
-app.use(helmet());
+// Security middleware - configure helmet to allow cross-origin images
+app.use(helmet({
+  crossOriginResourcePolicy: { policy: 'cross-origin' },
+  crossOriginOpenerPolicy: { policy: 'unsafe-none' },
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      baseUri: ["'self'"],
+      fontSrc: ["'self'", "https:", "data:"],
+      formAction: ["'self'"],
+      frameAncestors: ["'self'"],
+      imgSrc: ["'self'", "data:", env.frontendUrl, "https://gramaai2k26.netlify.app"],
+      objectSrc: ["'none'"],
+      scriptSrc: ["'self'"],
+      scriptSrcAttr: ["'none'"],
+      styleSrc: ["'self'", "https:", "'unsafe-inline'"],
+      upgradeInsecureRequests: [],
+    },
+  },
+}));
 app.use(cors({
   origin: [env.frontendUrl, 'http://localhost:5173', 'https://gramaai2k26.netlify.app'],
   credentials: true,
